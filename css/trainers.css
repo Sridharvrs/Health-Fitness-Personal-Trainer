@@ -1,0 +1,654 @@
+/* ===== TRAINERS PAGE — unique design ===== */
+.accent { color: var(--accent-500); }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.7rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+  color: var(--primary-900);
+  font-weight: 800; letter-spacing: 0.05em;
+  box-shadow: 0 8px 22px rgba(32,195,154,0.35);
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s;
+}
+.btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 14px 32px rgba(32,195,154,0.5); }
+.btn-primary.big { padding: 1.1rem 2.4rem; font-size: 1.05rem; }
+.section-head { text-align: center; margin-bottom: 3rem; }
+.section-head h2 { font-size: clamp(2rem, 5vw, 3.4rem); color: var(--ink-50); }
+
+/* 1. HERO */
+.tr-hero { padding: 10rem 0 4rem; background: var(--ink-950); position: relative; overflow: hidden; }
+.tr-hero::before {
+  content: "";
+  position: absolute; top: 0; left: 0;
+  width: 50%; height: 100%;
+  background: radial-gradient(circle at 0% 50%, rgba(255,154,46,0.12), transparent 70%);
+}
+.tr-hero h1 { font-size: clamp(3rem, 8vw, 5.4rem); color: var(--ink-50); margin: 0.6rem 0 1rem; }
+.tr-hero p { color: var(--ink-200); max-width: 520px; position: relative; }
+
+/* 2. TRAINER GRID — emerald cards */
+.tr-grid-sec { padding: 4rem 0 6rem; background: var(--ink-900); }
+.tr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.tr-card {
+  background: var(--primary-900);
+  border: 1px solid rgba(32,195,154,0.2);
+  border-bottom: 4px solid var(--primary-500);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s;
+}
+.tr-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hard); }
+.tr-photo {
+  height: 360px;
+  background-size: cover; background-position: center top;
+  position: relative;
+  overflow: hidden;
+}
+.tr-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(6,10,11,0.2), rgba(6,10,11,0.92));
+  display: flex; align-items: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+.tr-overlay p { color: var(--ink-50); font-style: italic; font-size: 0.95rem; }
+.tr-photo:hover .tr-overlay { opacity: 1; }
+.tr-info { padding: 1.4rem; }
+.tr-info h3 { font-size: 1.5rem; color: var(--ink-50); }
+.tr-info > span { display: block; color: var(--accent-400); font-size: 0.85rem; letter-spacing: 0.05em; margin: 0.3rem 0 0.8rem; }
+.specs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.specs span {
+  font-size: 0.72rem; letter-spacing: 0.06em;
+  border: 1px solid rgba(32,195,154,0.4);
+  color: var(--primary-300);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+/* 3. CERT BAND */
+.cert-band { padding: 4rem 0; background: var(--primary-800); border-top: 1px solid rgba(32,195,154,0.2); border-bottom: 1px solid rgba(32,195,154,0.2); }
+.cert-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+.cert strong { display: block; font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--accent-400); }
+.cert span { color: var(--ink-200); font-size: 0.85rem; letter-spacing: 0.06em; }
+
+/* 4. FEATURED COACH */
+.featured-coach { padding: 6rem 0; background: var(--ink-950); }
+.fc-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: center; }
+.fc-img {
+  height: 520px;
+  background-size: cover; background-position: center;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(32,195,154,0.25);
+  box-shadow: var(--shadow-hard);
+}
+.fc-text h2 { font-size: clamp(2.4rem, 6vw, 3.6rem); color: var(--ink-50); margin-bottom: 0.3rem; }
+.fc-role { color: var(--accent-400); font-weight: 700; letter-spacing: 0.06em; margin-bottom: 1.2rem; }
+.fc-text p { color: var(--ink-200); margin-bottom: 1.5rem; }
+.fc-tags { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.fc-tags span {
+  padding: 0.35rem 0.9rem;
+  background: var(--primary-900);
+  border: 1px solid rgba(32,195,154,0.3);
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem; color: var(--primary-300);
+  font-weight: 600;
+}
+
+/* 5. TESTIMONIALS */
+.testi-sec { padding: 6rem 0; background: var(--ink-900); }
+.testi-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.testi-card {
+  padding: 2rem 1.8rem;
+  background: var(--primary-900);
+  border: 1px solid rgba(32,195,154,0.2);
+  border-radius: var(--radius-lg);
+  transition: transform 0.4s var(--ease-spring);
+}
+.testi-card:hover { transform: translateY(-6px); }
+.stars { color: var(--accent-500); letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+.testi-card p { color: var(--ink-100); font-size: 0.95rem; margin-bottom: 1.2rem; }
+.t-author strong { display: block; color: var(--ink-50); }
+.t-author span { color: var(--ink-300); font-size: 0.82rem; }
+
+/* 6. CTA */
+.tr-cta { padding: 6rem 0; background: linear-gradient(135deg, var(--primary-900), var(--ink-950)); text-align: center; }
+.tr-cta h2 { font-size: clamp(2.4rem, 6vw, 3.6rem); color: var(--ink-50); margin-bottom: 1rem; }
+.tr-cta p { color: var(--ink-200); max-width: 440px; margin: 0 auto 2rem; }
+
+@media (max-width: 860px) {
+  .tr-grid { grid-template-columns: 1fr 1fr; }
+  .fc-grid { grid-template-columns: 1fr; }
+  .fc-img { height: 360px; }
+  .cert-row { grid-template-columns: 1fr 1fr; }
+  .testi-track { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .tr-grid { grid-template-columns: 1fr; }
+  .tr-photo { height: 300px; }
+}
+
+
+/* ==========================================
+   PULSEFIT TRAINERS — 3 PREMIUM SECTIONS
+========================================== */
+
+
+/* ==========================================
+   1. COACHING ADVANTAGE
+========================================== */
+
+.coach-advantage {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 0;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(32,195,154,.09), transparent 35%),
+    var(--ink-950);
+}
+
+.ca-subtitle {
+  max-width: 580px;
+  margin: 1rem auto 0;
+  color: var(--ink-300);
+  font-size: .94rem;
+  line-height: 1.8;
+}
+
+.ca-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.ca-card {
+  position: relative;
+  min-height: 310px;
+  padding: 1.7rem;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(32,195,154,.2);
+  background: linear-gradient(145deg, var(--ink-800), var(--primary-900));
+  transition:
+    transform .4s var(--ease-spring),
+    border-color .3s,
+    box-shadow .3s;
+}
+
+.ca-card::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: -65px;
+  top: -65px;
+  border-radius: 50%;
+  border: 1px solid rgba(32,195,154,.13);
+  transition: transform .5s;
+}
+
+.ca-card:hover {
+  transform: translateY(-9px);
+  border-color: var(--accent-500);
+  box-shadow: var(--shadow-hard);
+}
+
+.ca-card:hover::before {
+  transform: scale(1.8);
+}
+
+.ca-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.ca-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: rgba(255,255,255,.3);
+}
+
+.ca-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(32,195,154,.13);
+  border: 1px solid rgba(32,195,154,.3);
+  color: var(--primary-400);
+  font-size: 1.8rem;
+  transition: .35s;
+}
+
+.ca-card:hover .ca-icon {
+  color: var(--ink-950);
+  background: var(--accent-500);
+  border-color: var(--accent-500);
+  transform: rotate(-8deg);
+}
+
+.ca-card h3 {
+  font-size: 1.55rem;
+  color: var(--ink-50);
+  margin-bottom: .8rem;
+}
+
+.ca-card p {
+  color: var(--ink-300);
+  font-size: .85rem;
+  line-height: 1.85;
+}
+
+.ca-bottom {
+  position: absolute;
+  left: 1.7rem;
+  bottom: 1.5rem;
+  color: var(--accent-400);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+
+/* ==========================================
+   2. COACHING JOURNEY
+========================================== */
+
+.coach-journey {
+  position: relative;
+  padding: 7rem 0;
+  background: var(--ink-900);
+  overflow: hidden;
+}
+
+.cj-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.cj-heading h2 {
+  color: var(--ink-50);
+  font-size: clamp(2.5rem, 5vw, 3.7rem);
+  max-width: 650px;
+}
+
+.cj-heading > p {
+  max-width: 350px;
+  color: var(--ink-300);
+  font-size: .9rem;
+  line-height: 1.9;
+}
+
+.cj-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  position: relative;
+}
+
+.cj-timeline::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 31px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-500),
+    var(--accent-500),
+    var(--primary-500)
+  );
+  opacity: .45;
+}
+
+.cj-step {
+  position: relative;
+  z-index: 1;
+}
+
+.cj-marker {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+  background: var(--ink-800);
+  border: 1px solid var(--primary-500);
+  box-shadow: 0 0 0 7px var(--ink-900);
+  transition: .4s;
+}
+
+.cj-step:hover .cj-marker {
+  background: var(--accent-500);
+  border-color: var(--accent-500);
+  transform: scale(1.1);
+}
+
+.cj-marker span {
+  color: var(--primary-400);
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  transition: color .3s;
+}
+
+.cj-step:hover .cj-marker span {
+  color: var(--ink-950);
+}
+
+.cj-content {
+  padding: 1.5rem;
+  min-height: 255px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(32,195,154,.15);
+  background: linear-gradient(145deg, var(--ink-800), rgba(11,31,26,.8));
+  transition: .35s;
+}
+
+.cj-step:hover .cj-content {
+  border-color: rgba(255,154,46,.5);
+  transform: translateY(-5px);
+}
+
+.cj-label {
+  color: var(--accent-400);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.cj-content h3 {
+  color: var(--ink-50);
+  font-size: 1.6rem;
+  margin: .7rem 0;
+}
+
+.cj-content p {
+  color: var(--ink-300);
+  font-size: .83rem;
+  line-height: 1.8;
+}
+
+.cj-meta {
+  margin-top: 1.3rem;
+  padding-top: .9rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: var(--primary-400);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+}
+
+
+/* ==========================================
+   3. COACH CONNECTION
+========================================== */
+
+.coach-connection {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 0;
+  background:
+    radial-gradient(circle at 90% 50%, rgba(20,80,68,.22), transparent 40%),
+    var(--ink-950);
+}
+
+.cc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 5rem;
+}
+
+.cc-visual {
+  position: relative;
+  min-height: 560px;
+}
+
+.cc-photo {
+  position: absolute;
+  inset: 0 30px 30px 0;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(0deg, rgba(6,10,11,.7), transparent 65%),
+    url("../images/img10.webp") no-repeat center/cover;
+  border: 1px solid rgba(32,195,154,.25);
+  box-shadow: var(--shadow-hard);
+}
+
+.cc-photo-label {
+  position: absolute;
+  left: 2rem;
+  bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.cc-photo-label span {
+  color: var(--accent-400);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.cc-photo-label strong {
+  font-family: var(--font-display);
+  color: var(--ink-50);
+  font-size: 2.7rem;
+  line-height: 1;
+  letter-spacing: .04em;
+}
+
+.cc-stamp {
+  position: absolute;
+  right: 0;
+  bottom: 70px;
+  width: 112px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .2rem;
+  border-radius: 50%;
+  background: var(--accent-500);
+  color: var(--ink-950);
+  box-shadow: var(--shadow-hard);
+  transform: rotate(10deg);
+}
+
+.cc-stamp > span {
+  font-size: 1.4rem;
+}
+
+.cc-stamp small {
+  font-size: .62rem;
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: .08em;
+  text-align: center;
+}
+
+.cc-content h2 {
+  color: var(--ink-50);
+  font-size: clamp(2.5rem, 5vw, 3.7rem);
+  margin-bottom: 1.3rem;
+}
+
+.cc-lead {
+  color: var(--ink-100);
+  font-size: 1.08rem;
+  line-height: 1.8;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cc-description {
+  color: var(--ink-300);
+  font-size: .9rem;
+  line-height: 1.9;
+}
+
+.cc-values {
+  display: grid;
+  gap: .9rem;
+  margin: 2rem 0;
+}
+
+.cc-values > div {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+}
+
+.cc-check {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(32,195,154,.15);
+  color: var(--primary-400);
+  font-size: .8rem;
+  font-weight: 900;
+}
+
+.cc-values strong {
+  color: var(--ink-200);
+  font-size: .88rem;
+}
+
+.cc-btn span {
+  transition: transform .3s;
+}
+
+.cc-btn:hover span {
+  transform: translate(3px,-3px);
+}
+
+
+/* ==========================================
+   RESPONSIVE — PREMIUM SECTIONS
+========================================== */
+
+@media (max-width: 1000px) {
+  .ca-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cj-timeline {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+  }
+
+  .cj-timeline::before {
+    display: none;
+  }
+
+  .cc-layout {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .cj-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cc-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cc-visual {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 520px) {
+  .coach-advantage,
+  .coach-journey,
+  .coach-connection {
+    padding: 4.5rem 0;
+  }
+
+  .ca-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ca-card {
+    min-height: 275px;
+  }
+
+  .cj-timeline {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cj-step {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: .8rem;
+    align-items: start;
+  }
+
+  .cj-marker {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .cj-marker span {
+    font-size: 1.35rem;
+  }
+
+  .cj-content {
+    min-height: auto;
+    padding: 1.2rem;
+  }
+
+  .cj-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .cc-visual {
+    min-height: 370px;
+  }
+
+  .cc-photo {
+    inset: 0 20px 20px 0;
+  }
+
+  .cc-photo-label {
+    left: 1.2rem;
+    bottom: 2.5rem;
+  }
+
+  .cc-photo-label strong {
+    font-size: 2rem;
+  }
+
+  .cc-stamp {
+    width: 85px;
+    height: 85px;
+    bottom: 45px;
+  }
+
+  .cc-stamp > span {
+    font-size: 1.1rem;
+  }
+
+  .cc-stamp small {
+    font-size: .52rem;
+  }
+}

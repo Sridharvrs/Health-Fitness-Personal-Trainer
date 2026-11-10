@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Stackly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="images/logo.webp" alt="Stackly Logo">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="trainers.html">Trainers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-cta" data-login>Sign In</button>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<aside class="offcanvas">
+  <div class="oc-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="trainers.html">Trainers</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="#" class="oc-login" data-login>Sign In</a>
+</aside>
+<div class="overlay"></div>
+
+<div class="login-modal" role="dialog" aria-modal="true">
+  <div class="login-card">
+    <button class="login-close" aria-label="Close login">&times;</button>
+    <h3>Welcome Back</h3>
+    <p class="sub">Choose how you're signing in today.</p>
+    <div class="role-selector">
+      <div class="role-option active"><span class="icon">&#127939;</span><span class="label">Member</span></div>
+      <div class="role-option"><span class="icon">&#128105;&#8205;&#127901;</span><span class="label">Trainer</span></div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Signed in (demo).');">
+      <div class="field"><label>Email</label><input type="email" placeholder="you@Stackly.com" required></div>
+      <div class="field"><label>Password</label><input type="password" placeholder="••••••••" required></div>
+      <button class="login-submit" type="submit">Start Training</button>
+    </form>
+    <p class="login-alt">New here? <a href="#" data-login>Create an account</a></p>
+  </div>
+</div>
+
+<main>
+  <!-- 1. CONTACT HERO -->
+  <section class="contact-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Get In Touch</span>
+      <h1 class="reveal d1">Let's Start <span class="accent">Today.</span></h1>
+      <p class="reveal d2">Questions, bookings, or just want to say hi? Drop us a line — we reply within one business day.</p>
+    </div>
+  </section>
+
+  <!-- 2. CONTACT FORM + INFO -->
+  <section class="form-sec">
+    <div class="container form-grid">
+      <form class="contact-form reveal" id="contactForm">
+        <h2>Book Your Free Assessment</h2>
+        <div class="f-row">
+          <div class="field"><label>Full Name</label><input type="text" name="name" placeholder="Alex Morgan" oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'')" required></div>
+          <div class="field"><label>Email</label><input type="email" name="email" placeholder="alex@email.com" required></div>
+        </div>
+        <div class="f-row">
+          <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="+1 555 000 1234" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10)" required></div>
+          <div class="field"><label>Program Interest</label>
+            <select name="program">
+              <option>Strength — Iron Foundations</option>
+              <option>Cardio — Engine Builder</option>
+              <option>Mobility — Flow &amp; Flex</option>
+              <option>Lifestyle — Total Reset</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Message</label><textarea name="message" rows="4" placeholder="Tell us your goals..."></textarea></div>
+        <button type="submit" class="btn-primary big">Send Request</button>
+        <p class="form-note" id="formNote"></p>
+      </form>
+
+      <aside class="info-side reveal d1">
+        <div class="info-card">
+          <div class="ic-row"><span class="ic-ico">&#128205;</span><div><strong>221 Iron Lane</strong><span>Downtown, Suite 4</span></div></div>
+          <div class="ic-row"><span class="ic-ico">&#9742;</span><div><strong>+1 (555) 010-2024</strong><span>Mon–Sat, 6am–10pm</span></div></div>
+          <div class="ic-row"><span class="ic-ico">&#9993;</span><div><strong>hello@Stackly.com</strong><span>We reply within 1 business day</span></div></div>
+        </div>
+        <div class="hours-card">
+          <h3>Studio Hours</h3>
+          <ul>
+            <li><span>Mon–Fri</span><span>6:00 – 22:00</span></li>
+            <li><span>Saturday</span><span>7:00 – 20:00</span></li>
+            <li><span>Sunday</span><span>8:00 – 14:00</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 3. MAP PLACEHOLDER -->
+  <section class="map-sec">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Find Us</span><h2>The Studio</h2></div>
+      <div class="map-frame reveal">
+        <iframe
+          title="Stackly studio map"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-122.43%2C37.76%2C-122.39%2C37.79&layer=mapnik"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. QUICK FAQ -->
+  <section class="quick-faq">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Quick Answers</span><h2>Before You Reach Out</h2></div>
+      <div class="qf-grid">
+        <div class="qf-card reveal"><h4>Is the first session really free?</h4><p>Yes. Your 60-minute assessment costs nothing and requires no membership.</p></div>
+        <div class="qf-card reveal d1"><h4>Do you offer online coaching?</h4><p>Yes — all programs include remote check-ins via the member dashboard.</p></div>
+        <div class="qf-card reveal d2"><h4>Can I pause my membership?</h4><p>Absolutely. Pause anytime, no fees. Resume when you're ready.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SOCIAL CONNECT -->
+  <section class="social-sec">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Stay Connected</span><h2>Follow The Work</h2></div>
+      <div class="social-grid">
+         <a href="#" class="social-card reveal">
+           <span class="s-ico"><i class="fa-brands fa-instagram"></i></span>
+           <strong>Instagram</strong>
+           <span>@Stacklystudio</span>
+         </a>
+
+         <a href="#" class="social-card reveal d1">
+           <span class="s-ico"><i class="fa-brands fa-x-twitter"></i></span>
+           <strong>X</strong>
+           <span>@Stackly</span>
+         </a>
+
+         <a href="#" class="social-card reveal d2">
+           <span class="s-ico"><i class="fa-brands fa-youtube"></i></span>
+           <strong>YouTube</strong>
+           <span>Stackly TV</span>
+         </a>
+
+         <a href="#" class="social-card reveal d3">
+           <span class="s-ico"><i class="fa-brands fa-telegram"></i></span>
+           <strong>Telegram</strong>
+           <span>@Stackly</span>
+         </a>
+       </div>
+    </div>
+  </section>
+
+  <!-- 6. FINAL CTA -->
+  <section class="contact-cta">
+    <div class="container cta-inner reveal">
+      <h2>Ready When You Are.</h2>
+      <p>Walk in, call, or send the form above. Your first session is on us.</p>
+      <a href="tel:+15550102024" class="btn-primary big">Call Now</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="pulse-dot"></span>Stackly</a>
+        <p>A personal training studio built around measurable progress, expert coaching, and a community that shows up.</p>
+      </div>
+      <div class="footer-col"><h5>Studio</h5><a href="about.html">About Us</a><a href="trainers.html">Our Trainers</a><a href="programs.html">Programs</a></div>
+      <div class="footer-col"><h5>Support</h5><a href="contact.html">Contact</a><a href="#" data-login>Member Login</a><a href="contact.html">Book a Class</a></div>
+      <div class="footer-col"><h5>Visit</h5><li>221 Iron Lane, Downtown</li><li>Mon–Sat · 6am–10pm</li><li>+1 (555) 010-2024</li></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2024 Stackly Studio. All rights reserved.</span>
+      <div class="socials">
+  <a href="#" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="#" aria-label="X">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <a href="#" aria-label="YouTube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

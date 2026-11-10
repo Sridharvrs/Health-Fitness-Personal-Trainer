@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Member Dashboard — PulseFit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/member-dashboard.css" />
+</head>
+<body class="dash">
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="sidebar" id="sidebar" aria-label="Dashboard navigation">
+
+  <div class="sb-brand">
+    <a href="index.html" class="logo">
+      <img src="images/logo.webp" alt="Stackly Logo">
+    </a>
+  </div>
+
+  <div class="sb-user">
+    <div class="sb-avatar avatar" id="sbAvatar">A</div>
+    <div>
+      <strong id="sbName" class="profileName">Alex Morgan</strong>
+      <span id="sbRole">Member</span>
+    </div>
+  </div>
+
+  <nav class="sb-nav" id="sbNav">
+    <span class="sb-nav-label">Member Area</span>
+
+    <a href="#overview" class="nav-item active" data-id="overview">
+      <span>⌂</span> Overview
+    </a>
+
+    <a href="#log" class="nav-item" data-id="log">
+      <span>✎</span> Log Workout
+    </a>
+
+    <a href="#progress" class="nav-item" data-id="progress">
+      <span>↗</span> Progress
+    </a>
+
+    <a href="#schedule" class="nav-item" data-id="schedule">
+      <span>▦</span> Schedule
+    </a>
+
+    <a href="#plan" class="nav-item" data-id="plan">
+      <span>▤</span> My Plan
+    </a>
+
+    <a href="#account" class="nav-item" data-id="account">
+      <span>♙</span> Account
+    </a>
+  </nav>
+
+  <div class="sb-foot">
+    <button class="logout-btn" type="button" data-logout>
+      <span>↪</span> Log out
+    </button>
+  </div>
+
+</aside>
+
+<div class="main-wrap">
+
+  <header class="topbar">
+
+    <button class="menu-btn" id="menuBtn" type="button"
+      aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="top-title">
+      <span class="crumb" id="crumb">Member Dashboard</span>
+      <h1 id="pageTitle">Your Dashboard</h1>
+    </div>
+
+    <div class="top-actions">
+      <span class="top-date" id="todayLabel"></span>
+      <button class="logout-btn logout-top" type="button" data-logout>
+        Log out
+      </button>
+    </div>
+
+  </header>
+
+  <main class="content" id="view">
+
+    <!-- =================================
+         OVERVIEW
+    ================================== -->
+
+    <section class="dash-page" data-page="overview">
+
+      <div class="stack">
+
+        <section class="hero-card">
+
+          <div class="hero-img"
+            style="background-image:url('https://images.pexels.com/photos/39219677/pexels-photo-39219677.jpeg?auto=compress&cs=tinysrgb&h=650&w=940')">
+          </div>
+
+          <div class="hero-body">
+            <span class="eyebrow-sm">Today's focus</span>
+            <h2>Lower Body Strength</h2>
+            <p>Day 2 of Week 4 · About 55 minutes · Coach Marcus Reyes</p>
+
+            <div class="hero-actions">
+              <button class="btn-primary" data-go="plan">
+                Open Today's Plan
+              </button>
+
+              <button class="btn-ghost" data-go="log">
+                Log a Session
+              </button>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="grid-kpi">
+
+          <div class="card kpi">
+            <div class="kpi-top">
+              <span class="kpi-label">Sessions this month</span>
+              <span class="kpi-chip">▦</span>
+            </div>
+            <div class="kpi-value">14</div>
+            <div class="kpi-delta">+3 vs last month</div>
+          </div>
+
+          <div class="card kpi">
+            <div class="kpi-top">
+              <span class="kpi-label">Weekly goal</span>
+              <span class="kpi-chip">◎</span>
+            </div>
+            <div class="kpi-value">4 / 5</div>
+            <div class="kpi-delta">1 session to go</div>
+          </div>
+
+          <div class="card kpi">
+            <div class="kpi-top">
+              <span class="kpi-label">Current streak</span>
+              <span class="kpi-chip">♨</span>
+            </div>
+            <div class="kpi-value">9 days</div>
+            <div class="kpi-delta">Personal best: 12 days</div>
+          </div>
+
+          <div class="card kpi">
+            <div class="kpi-top">
+              <span class="kpi-label">Body weight</span>
+              <span class="kpi-chip">↗</span>
+            </div>
+            <div class="kpi-value">78.4 kg</div>
+            <div class="kpi-delta">-1.6 kg in 6 weeks</div>
+          </div>
+
+        </section>
+
+        <div class="grid-2">
+
+          <section class="card">
+
+            <div class="section-title">
+              This Week
+              <small>Mon to Sun</small>
+            </div>
+
+            <div class="week-strip">
+              <div class="day-chip done">Mon<b>✓</b></div>
+              <div class="day-chip done">Tue<b>✓</b></div>
+              <div class="day-chip today">Wed<b>·</b></div>
+              <div class="day-chip">Thu<b>·</b></div>
+              <div class="day-chip">Fri<b>·</b></div>
+              <div class="day-chip">Sat<b>·</b></div>
+              <div class="day-chip">Sun<b>·</b></div>
+            </div>
+
+            <div class="ring-wrap" style="margin-top:1.5rem">
+
+              <div class="ring" style="--p:80">
+                <div class="ring-inner">
+                  <strong>80%</strong>
+                  <span>of goal</span>
+                </div>
+              </div>
+
+              <div>
+                <strong>Strong week so far</strong>
+                <p>You have finished 4 of 5 planned sessions. Keep going!</p>
+              </div>
+
+            </div>
+
+          </section>
+
+          <section class="card">
+
+            <div class="section-title">
+              Next Session
+              <small>Thu, 6:00 PM</small>
+            </div>
+
+            <div class="list">
+
+              <div class="list-item">
+                <div class="li-main">
+                  <div class="li-icon">♙</div>
+                  <div>
+                    <strong>Flow & Mobility</strong>
+                    <span>Elena Cross · Studio B · 50 min</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-light btn-sm" data-go="schedule">
+                Manage Schedule
+              </button>
+            </div>
+
+            <div class="section-title" style="margin-top:1.5rem">
+              Goal Progress
+            </div>
+
+            <div class="meter-row">
+              <span class="label">Strength: squat 100 kg</span>
+              <span class="val">72%</span>
+              <div class="meter"><span style="--w:72%"></span></div>
+            </div>
+
+            <div class="meter-row">
+              <span class="label">Mobility: deep squat hold</span>
+              <span class="val">55%</span>
+              <div class="meter"><span style="--w:55%"></span></div>
+            </div>
+
+            <div class="meter-row">
+              <span class="label">Cardio: 5 km under 28 min</span>
+              <span class="val">40%</span>
+              <div class="meter"><span style="--w:40%"></span></div>
+            </div>
+
+          </section>
+
+        </div>
+
+        <section class="card">
+
+          <div class="section-title">
+            Recent Activity
+            <small>Last 7 days</small>
+          </div>
+
+          <div class="list">
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">✓</div>
+                <div>
+                  <strong>Completed Upper Strength</strong>
+                  <span>58 min · Intensity 8</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">↗</div>
+                <div>
+                  <strong>Weigh-in logged</strong>
+                  <span>78.4 kg · Down 0.4 kg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">✉</div>
+                <div>
+                  <strong>Coach Marcus left a note</strong>
+                  <span>Add 2 sets of rows next session</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">▦</div>
+                <div>
+                  <strong>Mobility session booked</strong>
+                  <span>Thu, 6:00 PM with Elena Cross</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         LOG WORKOUT
+    ================================== -->
+
+    <section class="dash-page" data-page="log" hidden>
+
+      <div class="view-head">
+        <div>
+          <h2>Log a Workout</h2>
+          <p>Record your workout and track your training activity.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+
+        <section class="card">
+
+          <div class="section-title">New Session</div>
+
+          <form id="logForm">
+
+            <div class="form-grid">
+
+              <div class="field full">
+                <label for="logName">Your Name</label>
+                <input id="logName" type="text" value="Alex Morgan" required>
+              </div>
+
+              <div class="field">
+                <label for="logType">Workout Type</label>
+                <select id="logType">
+                  <option>Strength</option>
+                  <option>Cardio</option>
+                  <option>HIIT</option>
+                  <option>Mobility</option>
+                  <option>Recovery</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="logDate">Date</label>
+                <input id="logDate" type="date" required>
+              </div>
+
+              <div class="field">
+                <label for="logDuration">Duration (minutes)</label>
+                <input id="logDuration" type="number" min="1" max="600" value="45" required>
+              </div>
+
+              <div class="field">
+                <label for="logIntensity">Effort (1 to 10)</label>
+                <div class="range-row">
+                  <input id="logIntensity" type="range" min="1" max="10" value="6">
+                  <output id="intensityOut">6</output>
+                </div>
+              </div>
+
+              <div class="field full">
+                <label for="logNotes">Notes for your Coach</label>
+                <textarea id="logNotes" placeholder="How did it feel? Any pain or PRs?"></textarea>
+              </div>
+
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-primary" type="submit">Save Session</button>
+            </div>
+
+          </form>
+
+        </section>
+
+        <section class="card">
+
+          <div class="section-title">
+            Recent Sessions
+            <small>Sample records</small>
+          </div>
+
+          <div class="list" id="logList">
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">↗</div>
+                <div>
+                  <strong>Strength · 60 min</strong>
+                  <span>Nov 10 · Effort 8 · Great session</span>
+                </div>
+              </div>
+              <button class="btn-danger" data-delete type="button">Delete</button>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">↗</div>
+                <div>
+                  <strong>Cardio · 45 min</strong>
+                  <span>Nov 9 · Effort 7 · Good stamina</span>
+                </div>
+              </div>
+              <button class="btn-danger" data-delete type="button">Delete</button>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">↗</div>
+                <div>
+                  <strong>Upper Body · 55 min</strong>
+                  <span>Nov 8 · Effort 9 · Increased weights</span>
+                </div>
+              </div>
+              <button class="btn-danger" data-delete type="button">Delete</button>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         PROGRESS
+    ================================== -->
+
+    <section class="dash-page" data-page="progress" hidden>
+
+      <div class="view-head">
+        <div>
+          <h2>Your Progress</h2>
+          <p>Review your workout performance and fitness improvements.</p>
+        </div>
+        <button class="btn-light btn-sm" data-go="log">Log a Session</button>
+      </div>
+
+      <div class="stack">
+
+        <section class="grid-kpi">
+
+          <div class="card kpi">
+            <div class="kpi-label">Logged Sessions</div>
+            <div class="kpi-value">24</div>
+            <div class="kpi-delta">This month</div>
+          </div>
+
+          <div class="card kpi">
+            <div class="kpi-label">Training Time</div>
+            <div class="kpi-value">21.5 h</div>
+            <div class="kpi-delta">Total workout time</div>
+          </div>
+
+          <div class="card kpi">
+            <div class="kpi-label">Average Effort</div>
+            <div class="kpi-value">7.8</div>
+            <div class="kpi-delta">Scale of 1 to 10</div>
+          </div>
+
+          <div class="card kpi">
+            <div class="kpi-label">Workout Types</div>
+            <div class="kpi-value">5</div>
+            <div class="kpi-delta">Training variety</div>
+          </div>
+
+        </section>
+
+        <div class="grid-2">
+
+          <section class="card">
+            <div class="section-title">Minutes · Last 7 Days</div>
+
+            <div class="chart">
+              <div class="chart-col"><div class="chart-bar" style="--h:70%" data-val="45"></div><small>Mon</small></div>
+              <div class="chart-col"><div class="chart-bar" style="--h:90%" data-val="60"></div><small>Tue</small></div>
+              <div class="chart-col"><div class="chart-bar hl" style="--h:55%" data-val="35"></div><small>Wed</small></div>
+              <div class="chart-col"><div class="chart-bar" style="--h:80%" data-val="55"></div><small>Thu</small></div>
+              <div class="chart-col"><div class="chart-bar" style="--h:65%" data-val="40"></div><small>Fri</small></div>
+              <div class="chart-col"><div class="chart-bar" style="--h:100%" data-val="65"></div><small>Sat</small></div>
+              <div class="chart-col"><div class="chart-bar" style="--h:0%" data-val="0"></div><small>Sun</small></div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-title">Workout Mix</div>
+
+            <div class="meter-row">
+              <span class="label">Strength · 12 sessions</span>
+              <span class="val">50%</span>
+              <div class="meter"><span style="--w:50%"></span></div>
+            </div>
+
+            <div class="meter-row">
+              <span class="label">Cardio · 6 sessions</span>
+              <span class="val">25%</span>
+              <div class="meter"><span style="--w:25%"></span></div>
+            </div>
+
+            <div class="meter-row">
+              <span class="label">HIIT · 3 sessions</span>
+              <span class="val">13%</span>
+              <div class="meter"><span style="--w:13%"></span></div>
+            </div>
+
+            <div class="meter-row">
+              <span class="label">Mobility · 2 sessions</span>
+              <span class="val">8%</span>
+              <div class="meter"><span style="--w:8%"></span></div>
+            </div>
+
+            <div class="meter-row">
+              <span class="label">Recovery · 1 session</span>
+              <span class="val">4%</span>
+              <div class="meter"><span style="--w:4%"></span></div>
+            </div>
+
+          </section>
+
+        </div>
+
+        <div class="grid-2">
+
+          <section class="card">
+            <div class="section-title">Body Metrics <small>Last 6 weeks</small></div>
+
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr><th>Week</th><th>Weight</th><th>Body Fat</th><th>Resting HR</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Week 1</td><td>80.0 kg</td><td>21.2%</td><td>68 bpm</td></tr>
+                  <tr><td>Week 2</td><td>79.5 kg</td><td>20.9%</td><td>67 bpm</td></tr>
+                  <tr><td>Week 3</td><td>79.1 kg</td><td>20.5%</td><td>66 bpm</td></tr>
+                  <tr><td>Week 4</td><td>78.8 kg</td><td>20.1%</td><td>65 bpm</td></tr>
+                  <tr><td>Week 5</td><td>78.6 kg</td><td>19.8%</td><td>64 bpm</td></tr>
+                  <tr><td>Week 6</td><td><strong>78.4 kg</strong></td><td><strong>19.4%</strong></td><td><strong>63 bpm</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-title">Fitness Goals</div>
+
+            <div class="meter-row">
+              <span class="label">Back squat 100 kg</span>
+              <span class="val">72%</span>
+              <div class="meter"><span style="--w:72%"></span></div>
+            </div>
+
+            <div class="meter-row">
+              <span class="label">Deep squat hold 60 sec</span>
+              <span class="val">55%</span>
+              <div class="meter"><span style="--w:55%"></span></div>
+            </div>
+
+            <div class="meter-row">
+              <span class="label">5 km run under 28 min</span>
+              <span class="val">40%</span>
+              <div class="meter"><span style="--w:40%"></span></div>
+            </div>
+
+            <div class="meter-row">
+              <span class="label">Body fat under 18%</span>
+              <span class="val">48%</span>
+              <div class="meter"><span style="--w:48%"></span></div>
+            </div>
+
+          </section>
+
+        </div>
+
+        <section class="card">
+          <div class="section-title">Milestones</div>
+
+          <div class="list">
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">✓</div>
+                <div><strong>First 10 Sessions Completed</strong><span>Week 3 · 10 sessions in the log</span></div>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">♨</div>
+                <div><strong>7-Day Training Streak</strong><span>Week 4 · Personal best of 12 days</span></div>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">◎</div>
+                <div><strong>Back Squat 90 kg</strong><span>Week 5 · New personal record</span></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         SCHEDULE
+    ================================== -->
+
+    <section class="dash-page" data-page="schedule" hidden>
+
+      <div class="view-head">
+        <div>
+          <h2>Schedule</h2>
+          <p>Your upcoming coached sessions and bookings.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+
+        <section class="card">
+
+          <div class="section-title">
+            Upcoming Sessions
+            <small id="upCount">3 booked</small>
+          </div>
+
+          <div class="list" id="upList">
+
+            <div class="list-item" data-session>
+              <div class="li-main">
+                <div class="li-icon">▦</div>
+                <div>
+                  <strong>Flow & Mobility</strong>
+                  <span>Nov 12 · 6:00 PM · Elena Cross · Studio B</span>
+                </div>
+              </div>
+              <button class="btn-danger" type="button" data-cancel>Cancel</button>
+            </div>
+
+            <div class="list-item" data-session>
+              <div class="li-main">
+                <div class="li-icon">▦</div>
+                <div>
+                  <strong>Strength Foundations</strong>
+                  <span>Nov 14 · 9:00 AM · Marcus Reyes · Main Floor</span>
+                </div>
+              </div>
+              <button class="btn-danger" type="button" data-cancel>Cancel</button>
+            </div>
+
+            <div class="list-item" data-session>
+              <div class="li-main">
+                <div class="li-icon">▦</div>
+                <div>
+                  <strong>Engine Builder</strong>
+                  <span>Nov 17 · 7:30 AM · Sasha Bell · Track</span>
+                </div>
+              </div>
+              <button class="btn-danger" type="button" data-cancel>Cancel</button>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="card">
+
+          <div class="section-title">Book a Session</div>
+
+          <form id="bookForm" class="form-grid">
+
+            <div class="field full">
+              <label for="bkTrainer">Coach</label>
+              <select id="bkTrainer">
+                <option>Marcus Reyes · Strength</option>
+                <option>Elena Cross · Mobility</option>
+                <option>Sasha Bell · Cardio</option>
+                <option>Diego Santos · Recovery</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="bkDate">Date</label>
+              <input id="bkDate" type="date" required>
+            </div>
+
+            <div class="field">
+              <label for="bkTime">Time</label>
+              <select id="bkTime">
+                <option>6:00 AM</option>
+                <option>9:00 AM</option>
+                <option>12:00 PM</option>
+                <option>5:30 PM</option>
+                <option>7:00 PM</option>
+              </select>
+            </div>
+
+            <div class="form-actions full">
+              <button class="btn-primary" type="submit">Request Booking</button>
+            </div>
+
+          </form>
+
+          <p class="field hint" style="margin-top:1rem">
+            Demo only: booking requests are not sent to a coach.
+          </p>
+
+        </section>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         MY PLAN
+    ================================== -->
+
+    <section class="dash-page" data-page="plan" hidden>
+
+      <div class="view-head">
+        <div>
+          <h2>My Training Plan</h2>
+          <p>Iron Foundations · Week 4 of 12 · Coach Marcus Reyes</p>
+        </div>
+        <span class="pill info">Active Program</span>
+      </div>
+
+      <div class="grid-2">
+
+        <section class="card">
+
+          <div class="section-title">
+            Week 4 Progress
+            <small id="planPct">0% complete</small>
+          </div>
+
+          <div class="meter" style="height:12px;margin-bottom:1.25rem">
+            <span id="planBar" style="--w:0%"></span>
+          </div>
+
+          <div class="week-strip">
+            <div class="day-chip">Mon<b>·</b></div>
+            <div class="day-chip done">Tue<b>✓</b></div>
+            <div class="day-chip today">Wed<b>·</b></div>
+            <div class="day-chip">Thu<b>·</b></div>
+            <div class="day-chip">Fri<b>·</b></div>
+            <div class="day-chip">Sat<b>·</b></div>
+            <div class="day-chip">Sun<b>·</b></div>
+          </div>
+
+          <p style="margin-top:1.25rem">
+            Tick off each exercise as you finish it. Your progress is saved on this device.
+          </p>
+
+        </section>
+
+        <section class="card">
+
+          <div class="section-title">Coach Notes</div>
+
+          <div class="list">
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">✉</div>
+                <div><strong>Keep squat tempo at 3 seconds down</strong><span>Marcus · Posted Monday</span></div>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">!</div>
+                <div><strong>Watch your lower back on deadlifts</strong><span>Stop if you feel sharp pain</span></div>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">◎</div>
+                <div><strong>Deload next week, then build again</strong><span>Week 5 starts a new block</span></div>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <div style="margin-top:1.5rem">
+
+        <div class="day-block">
+          <h4>Day 1 · Upper Strength</h4>
+          <label class="check"><input type="checkbox" data-plan><span>Bench press 4 × 6</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Pull-ups 4 × 8</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Seated row 3 × 10</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Overhead press 3 × 8</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Face pulls 3 × 15</span></label>
+        </div>
+
+        <div class="day-block">
+          <h4>Day 2 · Lower Strength</h4>
+          <label class="check"><input type="checkbox" data-plan><span>Back squat 5 × 5</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Romanian deadlift 4 × 8</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Walking lunges 3 × 12</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Leg curl 3 × 12</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Plank 3 × 45 sec</span></label>
+        </div>
+
+        <div class="day-block">
+          <h4>Day 3 · Conditioning</h4>
+          <label class="check"><input type="checkbox" data-plan><span>Sled push 6 × 20 m</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Farmer carry 4 × 40 m</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Battle ropes 4 × 30 sec</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Bike intervals 8 × 1 min</span></label>
+        </div>
+
+        <div class="day-block">
+          <h4>Day 4 · Full Body Power</h4>
+          <label class="check"><input type="checkbox" data-plan><span>Deadlift 4 × 4</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Push press 4 × 5</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Dumbbell snatch 3 × 6</span></label>
+          <label class="check"><input type="checkbox" data-plan><span>Hanging knee raise 3 × 12</span></label>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         ACCOUNT
+    ================================== -->
+
+    <section class="dash-page" data-page="account" hidden>
+
+      <div class="view-head">
+        <div>
+          <h2>Account Settings</h2>
+          <p>Your profile, membership, billing and notification settings.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+
+        <section class="card">
+
+          <div class="section-title">Profile</div>
+
+          <form id="profileForm" class="form-grid">
+
+            <div class="field full">
+              <label for="pfName">Full Name</label>
+              <input id="pfName" type="text" value="Alex Morgan" required>
+            </div>
+
+            <div class="field">
+              <label for="pfEmail">Email</label>
+              <input id="pfEmail" type="email" value="alex@example.com">
+            </div>
+
+            <div class="field">
+              <label for="pfPhone">Phone</label>
+              <input id="pfPhone" type="tel" value="+1 555 020 1188">
+            </div>
+
+            <div class="field full">
+              <label for="pfGoal">Primary Goal</label>
+              <select id="pfGoal">
+                <option>Build strength</option>
+                <option>Lose body fat</option>
+                <option>Improve mobility</option>
+                <option>Run a faster 5 km</option>
+              </select>
+            </div>
+
+            <div class="form-actions full">
+              <button class="btn-primary" type="submit">Save Profile</button>
+            </div>
+
+          </form>
+
+        </section>
+
+        <section class="card">
+
+          <div class="section-title">Membership</div>
+
+          <div class="list">
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">▣</div>
+                <div>
+                  <strong>Pro Membership</strong>
+                  <span>$79 / month · Renews Dec 1</span>
+                </div>
+              </div>
+              <span class="pill ok">Active</span>
+            </div>
+
+            <div class="list-item">
+              <div class="li-main">
+                <div class="li-icon">♙</div>
+                <div>
+                  <strong>Personal Sessions</strong>
+                  <span>1 of 1 used this month</span>
+                </div>
+              </div>
+              <span class="pill warn">Full</span>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <div class="grid-2" style="margin-top:1.5rem">
+
+        <section class="card">
+
+          <div class="section-title">Billing History</div>
+
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Nov 1</td><td>Pro Membership</td><td>$79.00</td><td><span class="pill ok">Paid</span></td></tr>
+                <tr><td>Oct 1</td><td>Pro Membership</td><td>$79.00</td><td><span class="pill ok">Paid</span></td></tr>
+                <tr><td>Sep 14</td><td>Body Composition Scan</td><td>$35.00</td><td><span class="pill ok">Paid</span></td></tr>
+                <tr><td>Sep 1</td><td>Pro Membership</td><td>$79.00</td><td><span class="pill ok">Paid</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+        <section class="card">
+
+          <div class="section-title">Notifications</div>
+
+          <div class="switch-row">
+            <div><strong>Session Reminders</strong><span>24 hours before each booked session</span></div>
+            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          </div>
+
+          <div class="switch-row">
+            <div><strong>Coach Messages</strong><span>Get an alert when your coach replies</span></div>
+            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          </div>
+
+          <div class="switch-row">
+            <div><strong>Weekly Progress Email</strong><span>A summary of your week every Sunday</span></div>
+            <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+          </div>
+
+          <div class="switch-row">
+            <div><strong>Promotions</strong><span>Workshops and offers from PulseFit</span></div>
+            <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+          </div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/member-dashboard.js"></script>
+</body>
+</html>

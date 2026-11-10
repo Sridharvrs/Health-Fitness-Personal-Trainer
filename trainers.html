@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trainers — Stackly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/trainers.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="images/logo.webp" alt="Stackly Logo">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="trainers.html">Trainers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-cta" data-login>Sign In</button>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<aside class="offcanvas">
+  <div class="oc-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="trainers.html">Trainers</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="#" class="oc-login" data-login>Sign In</a>
+</aside>
+<div class="overlay"></div>
+
+<div class="login-modal" role="dialog" aria-modal="true">
+  <div class="login-card">
+    <button class="login-close" aria-label="Close login">&times;</button>
+    <h3>Welcome Back</h3>
+    <p class="sub">Choose how you're signing in today.</p>
+    <div class="role-selector">
+      <div class="role-option active"><span class="icon">&#127939;</span><span class="label">Member</span></div>
+      <div class="role-option"><span class="icon">&#128105;&#8205;&#127901;</span><span class="label">Trainer</span></div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Signed in (demo).');">
+      <div class="field"><label>Email</label><input type="email" placeholder="you@Stackly.com" required></div>
+      <div class="field"><label>Password</label><input type="password" placeholder="••••••••" required></div>
+      <button class="login-submit" type="submit">Start Training</button>
+    </form>
+    <p class="login-alt">New here? <a href="#" data-login>Create an account</a></p>
+  </div>
+</div>
+
+<main>
+  <!-- 1. TRAINERS HERO -->
+  <section class="tr-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Meet The Team</span>
+      <h1 class="reveal d1">Coaches Who <span class="accent">Care.</span></h1>
+      <p class="reveal d2">Fifteen certified trainers, each with a specialty. Hover a card to learn what drives them.</p>
+    </div>
+  </section>
+
+  <!-- 2. TRAINER GRID -->
+  <section class="tr-grid-sec">
+    <div class="container">
+      <div class="tr-grid">
+        <article class="tr-card reveal">
+          <div class="tr-photo" style="background-image:url('images/img22.webp')">
+            <div class="tr-overlay"><p>"Strength is built one rep at a time — never skip the basics."</p></div>
+          </div>
+          <div class="tr-info"><h3>Marcus Reyes</h3><span>Head Coach · Strength</span><div class="specs"><span>S&amp;C</span><span>Powerlifting</span></div></div>
+        </article>
+        <article class="tr-card reveal d1">
+          <div class="tr-photo" style="background-image:url('images/img24.webp')">
+            <div class="tr-overlay"><p>"Mobility is the foundation every athlete forgets — until it's gone."</p></div>
+          </div>
+          <div class="tr-info"><h3>Elena Cross</h3><span>Mobility &amp; Yoga</span><div class="specs"><span>RYT-500</span><span>FRC</span></div></div>
+        </article>
+        <article class="tr-card reveal d2">
+          <div class="tr-photo" style="background-image:url('images/img25.webp')">
+            <div class="tr-overlay"><p>"Conditioning is king. Show me your engine and I'll show you your potential."</p></div>
+          </div>
+          <div class="tr-info"><h3>Sasha Bell</h3><span>Cardio &amp; HIIT</span><div class="specs"><span>NASM-CPT</span><span>Endurance</span></div></div>
+        </article>
+        <article class="tr-card reveal">
+          <div class="tr-photo" style="background-image:url('images/img26.webp')">
+            <div class="tr-overlay"><p>"Recovery isn't a rest day — it's where the gains actually happen."</p></div>
+          </div>
+          <div class="tr-info"><h3>Diego Santos</h3><span>Recovery &amp; Rehab</span><div class="specs"><span>DPT</span><span>FMS</span></div></div>
+        </article>
+        <article class="tr-card reveal d1">
+          <div class="tr-photo" style="background-image:url('images/img27.webp')">
+            <div class="tr-overlay"><p>"Lift smart, eat well, sleep deep. The rest takes care of itself."</p></div>
+          </div>
+          <div class="tr-info"><h3>Aria Khan</h3><span>Nutrition &amp; Lifestyle</span><div class="specs"><span>RD</span><span>PrecisionNutrition</span></div></div>
+        </article>
+        <article class="tr-card reveal d2">
+          <div class="tr-photo" style="background-image:url('images/img5.webp')">
+            <div class="tr-overlay"><p>"Every body can move better. We just have to find the right starting line."</p></div>
+          </div>
+          <div class="tr-info"><h3>Jordan Pike</h3><span>Beginner Specialist</span><div class="specs"><span>ACE</span><span>Functional</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+<!-- 3. THE COACHING ADVANTAGE -->
+<section class="coach-advantage">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <span class="eyebrow">The Stackly Advantage</span>
+      <h2>Coaching That Goes <span class="accent">Further.</span></h2>
+      <p class="ca-subtitle">
+        Great coaching is more than counting reps. It's the guidance,
+        strategy and support that help you become stronger.
+      </p>
+    </div>
+
+    <div class="ca-grid">
+
+      <article class="ca-card reveal">
+        <div class="ca-top">
+          <span class="ca-number">01</span>
+          <div class="ca-icon">◎</div>
+        </div>
+        <h3>Individual Attention</h3>
+        <p>
+          Your coach understands your goals, experience and limitations
+          to make every training session meaningful.
+        </p>
+        <span class="ca-bottom">PERSONALIZED SUPPORT</span>
+      </article>
+
+      <article class="ca-card reveal d1">
+        <div class="ca-top">
+          <span class="ca-number">02</span>
+          <div class="ca-icon">↗</div>
+        </div>
+        <h3>Smarter Progression</h3>
+        <p>
+          Follow a structured training plan that evolves as your
+          strength, endurance and confidence improve.
+        </p>
+        <span class="ca-bottom">PURPOSEFUL TRAINING</span>
+      </article>
+
+      <article class="ca-card reveal d2">
+        <div class="ca-top">
+          <span class="ca-number">03</span>
+          <div class="ca-icon">✦</div>
+        </div>
+        <h3>Consistent Motivation</h3>
+        <p>
+          Stay accountable with regular feedback, encouragement
+          and guidance from your dedicated trainer.
+        </p>
+        <span class="ca-bottom">STRONGER TOGETHER</span>
+      </article>
+
+      <article class="ca-card reveal d3">
+        <div class="ca-top">
+          <span class="ca-number">04</span>
+          <div class="ca-icon">⌁</div>
+        </div>
+        <h3>Complete Development</h3>
+        <p>
+          Build better movement, healthy habits and lasting
+          fitness instead of chasing short-term results.
+        </p>
+        <span class="ca-bottom">LONG-TERM WELLNESS</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- 4. YOUR COACHING JOURNEY -->
+<section class="coach-journey">
+  <div class="container">
+
+    <div class="cj-heading reveal">
+      <div>
+        <span class="eyebrow">Your Roadmap To Progress</span>
+        <h2>From First Session <span class="accent">To Stronger.</span></h2>
+      </div>
+      <p>
+        Every successful fitness journey starts with a plan.
+        Here's how our coaches help you move forward.
+      </p>
+    </div>
+
+    <div class="cj-timeline">
+
+      <article class="cj-step reveal">
+        <div class="cj-marker">
+          <span>01</span>
+        </div>
+        <div class="cj-content">
+          <span class="cj-label">THE BEGINNING</span>
+          <h3>Meet & Assess</h3>
+          <p>
+            Meet your trainer, discuss your goals and understand
+            your current fitness level through an initial assessment.
+          </p>
+          <div class="cj-meta">GET TO KNOW YOU</div>
+        </div>
+      </article>
+
+      <article class="cj-step reveal d1">
+        <div class="cj-marker">
+          <span>02</span>
+        </div>
+        <div class="cj-content">
+          <span class="cj-label">THE STRATEGY</span>
+          <h3>Build Your Plan</h3>
+          <p>
+            Your trainer creates a practical training program
+            based on your goals, schedule and abilities.
+          </p>
+          <div class="cj-meta">YOUR PERSONAL ROADMAP</div>
+        </div>
+      </article>
+
+      <article class="cj-step reveal d2">
+        <div class="cj-marker">
+          <span>03</span>
+        </div>
+        <div class="cj-content">
+          <span class="cj-label">THE WORK</span>
+          <h3>Train & Improve</h3>
+          <p>
+            Work through guided sessions, learn proper techniques
+            and develop consistency with expert support.
+          </p>
+          <div class="cj-meta">ONE SESSION AT A TIME</div>
+        </div>
+      </article>
+
+      <article class="cj-step reveal d3">
+        <div class="cj-marker">
+          <span>04</span>
+        </div>
+        <div class="cj-content">
+          <span class="cj-label">THE NEXT LEVEL</span>
+          <h3>Review & Evolve</h3>
+          <p>
+            Review your progress with your coach and adjust
+            your training as you work towards new milestones.
+          </p>
+          <div class="cj-meta">KEEP MOVING FORWARD</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- 5. MORE THAN A TRAINER -->
+<section class="coach-connection">
+  <div class="container cc-layout">
+
+    <div class="cc-visual reveal">
+      <div class="cc-photo"></div>
+      <div class="cc-photo-label">
+        <span>THE Stackly MINDSET</span>
+        <strong>SHOW UP.<br>GROW STRONGER.</strong>
+      </div>
+      <div class="cc-stamp">
+        <span>✦</span>
+        <small>BUILT ON<br>TRUST</small>
+      </div>
+    </div>
+
+    <div class="cc-content reveal d1">
+      <span class="eyebrow">Beyond The Training Floor</span>
+
+      <h2>More Than A Trainer.<br><span class="accent">Your Training Partner.</span></h2>
+
+      <p class="cc-lead">
+        The best coaches don't just tell you what to do.
+        They help you understand why you're doing it.
+      </p>
+
+      <p class="cc-description">
+        At Stackly, we believe meaningful progress starts with
+        a strong coach-member relationship. From your first
+        assessment to your biggest milestones, our trainers
+        are here to guide, challenge and support you.
+      </p>
+
+      <div class="cc-values">
+        <div>
+          <span class="cc-check">✓</span>
+          <strong>Honest guidance</strong>
+        </div>
+        <div>
+          <span class="cc-check">✓</span>
+          <strong>Support without judgment</strong>
+        </div>
+        <div>
+          <span class="cc-check">✓</span>
+          <strong>Progress at your pace</strong>
+        </div>
+      </div>
+
+      <a href="error.html" class="btn-primary cc-btn">
+        Find Your Training Partner <span>↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- 3. CERTIFICATIONS BAND -->
+  <section class="cert-band">
+    <div class="container cert-row">
+      <div class="cert reveal"><strong data-count="45">0</strong><span>Certified Coaches</span></div>
+      <div class="cert reveal d1"><strong data-count="100" data-suffix="%">0</strong><span>Nationally Accredited</span></div>
+      <div class="cert reveal d2"><strong data-count="12">0</strong><span>Specialties</span></div>
+      <div class="cert reveal d3"><strong data-count="20" data-suffix="+ yrs">0</strong><span>Combined Experience</span></div>
+    </div>
+  </section>
+
+  <!-- 4. FEATURED COACH -->
+  <section class="featured-coach">
+    <div class="container fc-grid">
+      <div class="fc-img reveal" style="background-image:url('images/img1.webp')"></div>
+      <div class="fc-text reveal d1">
+        <span class="eyebrow">Coach Spotlight</span>
+        <h2>Marcus Reyes</h2>
+        <div class="fc-role">Head Coach &amp; Founder</div>
+        <p>Twelve years coaching everyone from first-timers to competitive powerlifters. Marcus built Stackly on one idea: coaching should be personal, measurable, and honest. He still takes on a handful of one-on-one clients every year.</p>
+        <div class="fc-tags"><span>Strength</span><span>Powerlifting</span><span>Olympic Lifts</span><span>Posture</span></div>
+        <a href="error.html" class="btn-primary">Train With Marcus</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. TESTIMONIALS -->
+  <section class="testi-sec">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Member Stories</span><h2>Trained &amp; Transformed</h2></div>
+      <div class="testi-track">
+        <div class="testi-card reveal">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Sasha turned my cardio around in 10 weeks. I ran my first 10k without stopping. The weekly check-ins kept me honest."</p>
+          <div class="t-author"><strong>Priya N.</strong><span>Engine Builder · 10 wks</span></div>
+        </div>
+        <div class="testi-card reveal d1">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Diego fixed a knee problem three physios couldn't. I'm back to squatting pain-free for the first time in years."</p>
+          <div class="t-author"><strong>Tomás L.</strong><span>Total Reset · 16 wks</span></div>
+        </div>
+        <div class="testi-card reveal d2">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Elena's mobility sessions are the best hour of my week. I sleep better and my back doesn't ache anymore."</p>
+          <div class="t-author"><strong>Hannah K.</strong><span>Flow &amp; Flex · 8 wks</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA -->
+  <section class="tr-cta">
+    <div class="container cta-inner reveal">
+      <h2>Find Your Coach</h2>
+      <p>Book a free assessment and we'll match you with the trainer who fits your goals.</p>
+      <a href="error.html" class="btn-primary big">Book Free Assessment</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="pulse-dot"></span>Stackly</a>
+        <p>A personal training studio built around measurable progress, expert coaching, and a community that shows up.</p>
+      </div>
+      <div class="footer-col"><h5>Studio</h5><a href="about.html">About Us</a><a href="trainers.html">Our Trainers</a><a href="programs.html">Programs</a></div>
+      <div class="footer-col"><h5>Support</h5><a href="contact.html">Contact</a><a href="#" data-login>Member Login</a><a href="contact.html">Book a Class</a></div>
+      <div class="footer-col"><h5>Visit</h5><li>221 Iron Lane, Downtown</li><li>Mon–Sat · 6am–10pm</li><li>+1 (555) 010-2024</li></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2024 Stackly Studio. All rights reserved.</span>
+      <div class="socials">
+  <a href="#" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="#" aria-label="X">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <a href="#" aria-label="YouTube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+<script src="js/trainers.js"></script>
+</body>
+</html>

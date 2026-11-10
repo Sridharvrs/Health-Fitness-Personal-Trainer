@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trainer Dashboard — PulseFit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/trainer-dashboard.css" />
+</head>
+<body class="dash">
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="sidebar" id="sidebar" aria-label="Dashboard navigation">
+  <div class="sb-brand">
+    <a href="index.html" class="logo">
+      <img src="images/logo.webp" alt="Stackly Logo">
+    </a>
+  </div>
+  <div class="sb-user">
+    <div class="sb-avatar avatar" id="sbAvatar">A</div>
+    <div>
+      <strong id="sbName" class="profileName">Alex Morgan</strong>
+      <span id="sbRole">Member</span>
+    </div>
+  </div>
+<!-- ==================== SIDEBAR NAV ==================== -->
+<nav class="sb-nav" id="sbNav">
+  <span class="sb-nav-label">Coach tools</span>
+
+  <a href="#overview" class="nav-item active" data-id="overview">
+    <span class="nav-symbol">⌂</span>
+    <span>Overview</span>
+  </a>
+
+  <a href="#clients" class="nav-item" data-id="clients">
+    <span class="nav-symbol">♙</span>
+    <span>Clients</span>
+  </a>
+
+  <a href="#logs" class="nav-item" data-id="logs">
+    <span class="nav-symbol">▤</span>
+    <span>Session Logs</span>
+  </a>
+
+  <a href="#schedule" class="nav-item" data-id="schedule">
+    <span class="nav-symbol">▦</span>
+    <span>Schedule</span>
+  </a>
+
+  <a href="#programs" class="nav-item" data-id="programs">
+    <span class="nav-symbol">▱</span>
+    <span>Programs</span>
+  </a>
+
+  <a href="#earnings" class="nav-item" data-id="earnings">
+    <span class="nav-symbol">₹</span>
+    <span>Earnings</span>
+  </a>
+</nav>
+
+  <div class="sb-foot">
+    <button class="logout-btn" type="button" data-logout>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      <span>Log out</span>
+    </button>
+  </div>
+</aside>
+
+<div class="main-wrap">
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="top-title">
+      <span class="crumb" id="crumb">Dashboard</span>
+      <h1 id="pageTitle">Overview</h1>
+    </div>
+    <div class="top-actions">
+      <span class="top-date" id="todayLabel"></span>
+      <button class="logout-btn logout-top" type="button" data-logout>Log out</button>
+    </div>
+  </header>
+
+  <!-- =============================== MAIN PAGES ======================================== -->
+
+<main class="content" id="view">
+
+  <!-- =================================
+       01. OVERVIEW
+  ================================== -->
+  <section class="dash-page" data-page="overview">
+
+    <section class="hero-card trainer-hero">
+      <div class="hero-img"
+        style="background-image:url('https://images.pexels.com/photos/4853322/pexels-photo-4853322.jpeg?auto=compress&cs=tinysrgb&h=650&w=940')">
+      </div>
+
+      <div class="hero-body">
+        <span class="eyebrow-sm">COACH DASHBOARD</span>
+        <h2>Good morning, Marcus</h2>
+        <p>You have 4 sessions today and 3 plans waiting for review.</p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" data-go="clients">
+            View clients
+          </button>
+
+          <button class="btn-ghost" data-go="logs">
+            Review session logs
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI -->
+    <div class="grid-kpi trainer-kpis">
+
+      <div class="card kpi">
+        <div class="kpi-top">
+          <span class="kpi-label">Active clients</span>
+          <span class="kpi-chip">♙</span>
+        </div>
+        <div class="kpi-value">42</div>
+        <div class="kpi-delta">+4 this month</div>
+      </div>
+
+      <div class="card kpi">
+        <div class="kpi-top">
+          <span class="kpi-label">Sessions this week</span>
+          <span class="kpi-chip">▦</span>
+        </div>
+        <div class="kpi-value">58</div>
+        <div class="kpi-delta">On target</div>
+      </div>
+
+      <div class="card kpi">
+        <div class="kpi-top">
+          <span class="kpi-label">Client retention</span>
+          <span class="kpi-chip">↗</span>
+        </div>
+        <div class="kpi-value">94%</div>
+        <div class="kpi-delta">+2 pts vs last quarter</div>
+      </div>
+
+      <div class="card kpi">
+        <div class="kpi-top">
+          <span class="kpi-label">Revenue this month</span>
+          <span class="kpi-chip">₹</span>
+        </div>
+        <div class="kpi-value">$6,420</div>
+        <div class="kpi-delta">+12% vs October</div>
+      </div>
+
+    </div>
+
+    <!-- Sessions and alerts -->
+    <div class="grid-2 trainer-overview-grid">
+
+      <section class="card">
+        <div class="section-title">
+          Today's sessions
+          <small>4 booked</small>
+        </div>
+
+        <div class="list">
+
+          <div class="list-item">
+            <div class="li-main">
+              <div class="li-icon">◷</div>
+              <div>
+                <strong>7:00 AM · Hannah K.</strong>
+                <span>Flow & Flex</span>
+              </div>
+            </div>
+            <span class="pill info">Done</span>
+          </div>
+
+          <div class="list-item">
+            <div class="li-main">
+              <div class="li-icon">◷</div>
+              <div>
+                <strong>9:00 AM · Tomas L.</strong>
+                <span>Total Reset</span>
+              </div>
+            </div>
+            <span class="pill ok">Booked</span>
+          </div>
+
+          <div class="list-item">
+            <div class="li-main">
+              <div class="li-icon">◷</div>
+              <div>
+                <strong>12:00 PM · Aria Khan</strong>
+                <span>Nutrition check-in</span>
+              </div>
+            </div>
+            <span class="pill warn">Upcoming</span>
+          </div>
+
+          <div class="list-item">
+            <div class="li-main">
+              <div class="li-icon">◷</div>
+              <div>
+                <strong>5:30 PM · Priya N.</strong>
+                <span>Engine Builder</span>
+              </div>
+            </div>
+            <span class="pill info">Booked</span>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Needs attention</div>
+
+        <div class="list">
+
+          <div class="list-item">
+            <div class="li-main">
+              <div class="li-icon">!</div>
+              <div>
+                <strong>Priya N. missed 2 sessions</strong>
+                <span>Reach out to reschedule</span>
+              </div>
+            </div>
+            <span class="pill bad">Action</span>
+          </div>
+
+          <div class="list-item">
+            <div class="li-main">
+              <div class="li-icon">◎</div>
+              <div>
+                <strong>Tomas L. hit a new squat PR</strong>
+                <span>Send congratulations</span>
+              </div>
+            </div>
+            <span class="pill ok">Action</span>
+          </div>
+
+          <div class="list-item">
+            <div class="li-main">
+              <div class="li-icon">▤</div>
+              <div>
+                <strong>3 assessments awaiting plans</strong>
+                <span>Due within 48 hours</span>
+              </div>
+            </div>
+            <span class="pill warn">Action</span>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Recent logs are loaded from Supabase -->
+    <section class="card trainer-recent">
+      <div class="section-title">
+        Latest member logs
+        <small id="recentCount">Loading...</small>
+      </div>
+
+      <div id="recentLogs">
+        <div class="empty">
+          <strong>Loading recent logs...</strong>
+          Please wait.
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+
+  <!-- =================================
+       02. CLIENTS
+  ================================== -->
+  <section class="dash-page" data-page="clients" hidden>
+
+    <div class="view-head">
+      <div>
+        <h2>Clients</h2>
+        <p>Track progress, attendance and coaching notes for every member.</p>
+      </div>
+
+      <button class="btn-primary" type="button"
+        data-toast="Invitation sent to new client">
+        + Invite client
+      </button>
+    </div>
+
+    <section class="card">
+
+      <div class="toolbar">
+
+        <div class="field">
+          <label for="clientSearch">Search clients</label>
+          <input id="clientSearch" type="search"
+            placeholder="Search by name or program">
+        </div>
+
+        <div class="field trainer-status-filter">
+          <label for="clientStatus">Filter status</label>
+          <select id="clientStatus">
+            <option value="">All statuses</option>
+            <option>Active</option>
+            <option>At risk</option>
+            <option>New</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Program</th>
+              <th>Sessions</th>
+              <th>Progress</th>
+              <th>Status</th>
+              <th>Next session</th>
+            </tr>
+          </thead>
+
+          <!-- JavaScript only fills the client records -->
+          <tbody id="clientRows"></tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- Selected client details -->
+    <div id="clientDetail" class="trainer-client-detail"></div>
+
+  </section>
+
+
+  <!-- =================================
+       03. SESSION LOGS
+  ================================== -->
+  <section class="dash-page" data-page="logs" hidden>
+
+    <div class="view-head">
+      <div>
+        <h2>Session Logs</h2>
+        <p>Every session your members have logged, newest first.</p>
+      </div>
+
+      <button class="btn-light btn-sm" type="button" id="refreshLogs">
+        ↻ Refresh
+      </button>
+    </div>
+
+    <div id="logsLive">
+
+      <div class="grid-kpi">
+
+        <div class="card kpi">
+          <div class="kpi-label">Sessions logged</div>
+          <div class="kpi-value" id="logsTotal">0</div>
+          <div class="kpi-delta">All members</div>
+        </div>
+
+        <div class="card kpi">
+          <div class="kpi-label">Total minutes</div>
+          <div class="kpi-value" id="logsMinutes">0</div>
+          <div class="kpi-delta">Across all types</div>
+        </div>
+
+        <div class="card kpi">
+          <div class="kpi-label">Members logging</div>
+          <div class="kpi-value" id="logsMembers">0</div>
+          <div class="kpi-delta">Distinct names</div>
+        </div>
+
+      </div>
+
+      <div class="grid-2 trainer-logs-grid">
+
+        <section class="card">
+          <div class="section-title">Minutes by workout type</div>
+          <div class="chart" id="logsChart">
+            <div class="empty">Workout data will appear here.</div>
+          </div>
+        </section>
+
+        <section class="card">
+
+          <div class="toolbar">
+            <div class="field">
+              <label for="typeFilter">Filter by type</label>
+              <select id="typeFilter">
+                <option value="">All types</option>
+                <option>Strength</option>
+                <option>Cardio</option>
+                <option>HIIT</option>
+                <option>Mobility</option>
+                <option>Recovery</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-title">
+            Recent sessions
+            <small id="shownCount">0 shown</small>
+          </div>
+
+          <div id="logTable">
+            <div class="empty">
+              <strong>Loading sessions...</strong>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =================================
+       04. SCHEDULE
+  ================================== -->
+  <section class="dash-page" data-page="schedule" hidden>
+
+    <div class="view-head">
+      <div>
+        <h2>Weekly Schedule</h2>
+        <p>Your coaching calendar for this week.</p>
+      </div>
+
+      <button class="btn-primary" type="button"
+        data-toast="New session slot added">
+        + Add session
+      </button>
+    </div>
+
+    <section class="card">
+      <div class="sched-scroll">
+
+        <table class="sched">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+              <th>Sun</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="time">7:00 AM</td>
+              <td class="cell"></td>
+              <td class="cell"><span class="chip blue">Hannah K.<small>Flow & Flex</small></span></td>
+              <td class="cell"></td>
+              <td class="cell"><span class="chip blue">Hannah K.<small>Flow & Flex</small></span></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+            </tr>
+
+            <tr>
+              <td class="time">9:00 AM</td>
+              <td class="cell"><span class="chip">Tomas L.<small>Total Reset</small></span></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell"><span class="chip">Tomas L.<small>Total Reset</small></span></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+            </tr>
+
+            <tr>
+              <td class="time">12:00 PM</td>
+              <td class="cell"></td>
+              <td class="cell"><span class="chip ink">Aria Khan<small>Nutrition check-in</small></span></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+            </tr>
+
+            <tr>
+              <td class="time">5:00 PM</td>
+              <td class="cell"><span class="chip accent">Priya N.<small>Engine Builder</small></span></td>
+              <td class="cell"></td>
+              <td class="cell"><span class="chip">Sofia A.<small>Lean & Toned</small></span></td>
+              <td class="cell"></td>
+              <td class="cell"><span class="chip accent">Priya N.<small>Engine Builder</small></span></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+            </tr>
+
+            <tr>
+              <td class="time">7:00 PM</td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell"><span class="chip">Ethan B.<small>Pull & Push</small></span></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </section>
+
+    <div class="grid-3 trainer-schedule-kpis">
+
+      <section class="card">
+        <div class="kpi-label">Sessions this week</div>
+        <div class="kpi-value">11</div>
+        <div class="kpi-delta">Booked slots</div>
+      </section>
+
+      <section class="card">
+        <div class="kpi-label">Open slots</div>
+        <div class="kpi-value">6</div>
+        <div class="kpi-delta">Ready for new clients</div>
+      </section>
+
+      <section class="card">
+        <div class="kpi-label">Cancellations</div>
+        <div class="kpi-value">1</div>
+        <div class="kpi-delta down">This week</div>
+      </section>
+
+    </div>
+
+  </section>
+
+
+  <!-- =================================
+       05. PROGRAMS
+  ================================== -->
+  <section class="dash-page" data-page="programs" hidden>
+
+    <div class="view-head">
+      <div>
+        <h2>Programs</h2>
+        <p>Select a program to review its training phases.</p>
+      </div>
+
+      <button class="btn-primary" type="button"
+        data-toast="New program draft created">
+        + New program
+      </button>
+    </div>
+
+    <div class="grid-3 trainer-program-grid">
+
+      <section class="card prog-card selected" data-program="0">
+        <span class="pill info">Strength</span>
+        <h3>Iron Foundations</h3>
+        <p>Build a stronger foundation through progressive strength training.</p>
+        <div class="meta">
+          <span>12 weeks</span>
+          <span>Intermediate</span>
+          <span>14 enrolled</span>
+        </div>
+      </section>
+
+      <section class="card prog-card" data-program="1">
+        <span class="pill info">Cardio</span>
+        <h3>Engine Builder</h3>
+        <p>Improve endurance, conditioning and cardiovascular performance.</p>
+        <div class="meta">
+          <span>10 weeks</span>
+          <span>All levels</span>
+          <span>9 enrolled</span>
+        </div>
+      </section>
+
+      <section class="card prog-card" data-program="2">
+        <span class="pill info">Mobility</span>
+        <h3>Flow & Flex</h3>
+        <p>Develop flexibility, joint mobility and better movement quality.</p>
+        <div class="meta">
+          <span>8 weeks</span>
+          <span>Beginner</span>
+          <span>7 enrolled</span>
+        </div>
+      </section>
+
+      <section class="card prog-card" data-program="3">
+        <span class="pill info">Hybrid</span>
+        <h3>Total Reset</h3>
+        <p>Combine strength, conditioning and sustainable fitness habits.</p>
+        <div class="meta">
+          <span>16 weeks</span>
+          <span>Intermediate</span>
+          <span>11 enrolled</span>
+        </div>
+      </section>
+
+      <section class="card prog-card" data-program="4">
+        <span class="pill info">Lifestyle</span>
+        <h3>Lean & Toned</h3>
+        <p>Build consistency and develop lean muscle through structured sessions.</p>
+        <div class="meta">
+          <span>6 weeks</span>
+          <span>Beginner</span>
+          <span>6 enrolled</span>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="card trainer-builder">
+
+      <div class="view-head">
+        <div>
+          <h2 id="builderName" style="font-size:1.3rem">Iron Foundations · Phase builder</h2>
+          <p id="builderMeta">12 weeks · 14 members currently enrolled</p>
+        </div>
+
+        <button class="btn-primary btn-sm" type="button"
+          data-toast="Program changes published to members">
+          Publish changes
+        </button>
+      </div>
+
+      <div id="builderPhases"></div>
+
+    </section>
+
+  </section>
+
+
+  <!-- =================================
+       06. EARNINGS
+  ================================== -->
+  <section class="dash-page" data-page="earnings" hidden>
+
+    <div class="view-head">
+      <div>
+        <h2>Earnings</h2>
+        <p>Session revenue, payouts and program mix for your coaching business.</p>
+      </div>
+    </div>
+
+    <div class="grid-kpi trainer-earnings-kpis">
+
+      <div class="card kpi">
+        <div class="kpi-label">Revenue this month</div>
+        <div class="kpi-value">$6,420</div>
+        <div class="kpi-delta">+12% vs October</div>
+      </div>
+
+      <div class="card kpi">
+        <div class="kpi-label">Sessions billed</div>
+        <div class="kpi-value">58</div>
+        <div class="kpi-delta">Average $111 per session</div>
+      </div>
+
+      <div class="card kpi">
+        <div class="kpi-label">Next payout</div>
+        <div class="kpi-value">$5,140</div>
+        <div class="kpi-delta">Scheduled Nov 1</div>
+      </div>
+
+      <div class="card kpi">
+        <div class="kpi-label">Referral commission</div>
+        <div class="kpi-value">$1,286</div>
+        <div class="kpi-delta">3 new members</div>
+      </div>
+
+    </div>
+
+    <div class="grid-2 trainer-earnings-grid">
+
+      <section class="card">
+        <div class="section-title">Revenue, last 6 months</div>
+
+        <div class="chart">
+          <div class="chart-col">
+            <div class="chart-bar" style="--h:61%" data-val="$3,900"></div>
+            <small>Jun</small>
+          </div>
+          <div class="chart-col">
+            <div class="chart-bar" style="--h:67%" data-val="$4,300"></div>
+            <small>Jul</small>
+          </div>
+          <div class="chart-col">
+            <div class="chart-bar" style="--h:64%" data-val="$4,100"></div>
+            <small>Aug</small>
+          </div>
+          <div class="chart-col">
+            <div class="chart-bar" style="--h:79%" data-val="$5,050"></div>
+            <small>Sep</small>
+          </div>
+          <div class="chart-col">
+            <div class="chart-bar" style="--h:89%" data-val="$5,730"></div>
+            <small>Oct</small>
+          </div>
+          <div class="chart-col">
+            <div class="chart-bar hl" style="--h:100%" data-val="$6,420"></div>
+            <small>Nov</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Revenue by program</div>
+
+        <div class="meter-row">
+          <span class="label">Iron Foundations</span>
+          <span class="val">34%</span>
+          <div class="meter"><span style="--w:34%"></span></div>
+        </div>
+
+        <div class="meter-row">
+          <span class="label">Total Reset</span>
+          <span class="val">27%</span>
+          <div class="meter"><span style="--w:27%"></span></div>
+        </div>
+
+        <div class="meter-row">
+          <span class="label">Engine Builder</span>
+          <span class="val">19%</span>
+          <div class="meter"><span style="--w:19%"></span></div>
+        </div>
+
+        <div class="meter-row">
+          <span class="label">Flow & Flex</span>
+          <span class="val">12%</span>
+          <div class="meter"><span style="--w:12%"></span></div>
+        </div>
+
+        <div class="meter-row">
+          <span class="label">Lean & Toned</span>
+          <span class="val">8%</span>
+          <div class="meter"><span style="--w:8%"></span></div>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="card trainer-payouts">
+      <div class="section-title">Payout history</div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Nov 1</td>
+              <td>$5,140.00</td>
+              <td><span class="pill warn">Scheduled</span></td>
+            </tr>
+            <tr>
+              <td>Oct 1</td>
+              <td>$4,612.50</td>
+              <td><span class="pill ok">Paid</span></td>
+            </tr>
+            <tr>
+              <td>Sep 1</td>
+              <td>$4,055.00</td>
+              <td><span class="pill ok">Paid</span></td>
+            </tr>
+            <tr>
+              <td>Aug 1</td>
+              <td>$3,286.00</td>
+              <td><span class="pill ok">Paid</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </section>
+
+</main>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/trainer-dashboard.js"></script>
+</body>
+</html>

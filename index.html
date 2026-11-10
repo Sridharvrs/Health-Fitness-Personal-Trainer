@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stackly — Train Hard. Live Strong.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/home.css" />
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="images/logo.webp" alt="Stackly Logo">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="trainers.html">Trainers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-cta" data-login>Sign In</button>
+    <button class="nav-toggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- OFF-CANVAS -->
+<aside class="offcanvas">
+  <div class="oc-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="trainers.html">Trainers</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="#" class="oc-login" data-login>Sign In</a>
+</aside>
+<div class="overlay"></div>
+
+<!-- LOGIN / SIGNUP MODAL -->
+<div class="login-modal" id="loginModal" role="dialog" aria-modal="true"
+     aria-labelledby="authTitle">
+
+  <div class="login-card">
+
+    <button class="login-close" type="button" aria-label="Close login">
+      &times;
+    </button>
+
+    <!-- LOGIN VIEW -->
+    <div class="auth-view" id="loginView">
+
+      <h3 id="authTitle">Welcome Back<span class="accent">.</span></h3>
+      <p class="sub">Choose your account and get back to training.</p>
+
+      <div class="role-selector" aria-label="Choose account type">
+
+        <button type="button" class="role-option active"
+                data-role="member" aria-pressed="true">
+          <span class="icon">🏋️</span>
+          <span class="label">Member</span>
+        </button>
+
+        <button type="button" class="role-option"
+                data-role="trainer" aria-pressed="false">
+          <span class="icon">💪</span>
+          <span class="label">Trainer</span>
+        </button>
+
+      </div>
+
+      <form id="loginForm" novalidate>
+
+        <div class="field">
+          <label for="loginEmail" id="loginEmailLabel">Member Email</label>
+          <input type="email" id="loginEmail"
+                 placeholder="Enter your email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="loginPassword">Password</label>
+
+          <div class="password-wrap">
+            <input type="password" id="loginPassword"
+                   placeholder="Enter your password"
+                   autocomplete="current-password" required>
+
+            <button type="button" class="password-toggle"
+                    data-toggle-password="loginPassword"
+                    aria-label="Show password">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="auth-options">
+          <label class="remember-option">
+            <input type="checkbox" id="remember">
+            <span>Remember me</span>
+          </label>
+        </div>
+
+        <p class="auth-message" id="loginMessage"
+           role="alert" aria-live="polite"></p>
+
+        <button class="login-submit" id="loginSubmit" type="submit">
+          <span id="loginButtonText">Member Login</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </form>
+
+      <p class="login-alt">
+        New to Stackly?
+        <a href="#" id="showSignup">Create an account</a>
+      </p>
+
+    </div>
+
+    <!-- SIGNUP VIEW -->
+    <div class="auth-view" id="signupView" hidden>
+
+      <h3>Create Account<span class="accent">.</span></h3>
+      <p class="sub">Start building a stronger version of yourself.</p>
+
+      <form id="signupForm" novalidate>
+
+        <div class="field">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName"
+                 placeholder="Enter your full name"
+                 autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail"
+                 placeholder="you@example.com"
+                 autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="signupPassword">Password</label>
+
+          <div class="password-wrap">
+            <input type="password" id="signupPassword"
+                   placeholder="Create a strong password"
+                   autocomplete="new-password" required>
+
+            <button type="button" class="password-toggle"
+                    data-toggle-password="signupPassword"
+                    aria-label="Show password">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Confirm Password</label>
+
+          <div class="password-wrap">
+            <input type="password" id="confirmPassword"
+                   placeholder="Confirm your password"
+                   autocomplete="new-password" required>
+
+            <button type="button" class="password-toggle"
+                    data-toggle-password="confirmPassword"
+                    aria-label="Show password">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <label class="terms-option">
+          <input type="checkbox" id="signupTerms">
+          <span>
+            I agree to the <a href="terms.html">Terms</a> and
+            <a href="privacy.html">Privacy Policy</a>.
+          </span>
+        </label>
+
+        <p class="auth-message" id="signupMessage"
+           role="alert" aria-live="polite"></p>
+
+        <button class="login-submit" id="signupSubmit" type="submit">
+          <span>Create Account</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </form>
+
+      <p class="login-alt">
+        Already have an account?
+        <a href="#" id="showLogin">Back to Login</a>
+      </p>
+
+    </div>
+
+  </div>
+</div>
+
+<main>
+  <!-- 1. HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" style="background-image:url('images/img1.webp')"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <span class="eyebrow reveal">Personal Training Studio</span>
+      <h1 class="reveal d1">Train Hard.<br><span class="accent">Live Strong.</span></h1>
+      <p class="reveal d2">One-on-one coaching that adapts to your body, your goals, and your schedule. Real results, measured every week.</p>
+      <div class="hero-actions reveal d3">
+        <a href="error.html" class="btn-primary">Explore Programs</a>
+        <a href="error.html" class="btn-ghost">&#9654; Watch How It Works</a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div><strong data-count="1200" data-suffix="+">0</strong><span>Members Trained</span></div>
+        <div><strong data-count="98" data-suffix="%">0</strong><span>Goal Success Rate</span></div>
+        <div><strong data-count="15">0</strong><span>Expert Coaches</span></div>
+      </div>
+    </div>
+    <a href="#pillars" class="scroll-cue" aria-label="Scroll down">&#8963;</a>
+  </section>
+
+  <!-- 2. PILLARS -->
+  <section class="pillars" id="pillars">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why Stackly</span>
+        <h2>Four Pillars of Real Fitness</h2>
+      </div>
+      <div class="pillar-grid">
+        <article class="pillar-card reveal">
+          <div class="p-icon">01</div>
+          <h3>Strength</h3>
+          <p>Progressive overload built around your frame. Build power that lasts a lifetime.</p>
+        </article>
+        <article class="pillar-card reveal d1">
+          <div class="p-icon">02</div>
+          <h3>Mobility</h3>
+          <p>Daily movement flows that keep joints young and muscles responsive.</p>
+        </article>
+        <article class="pillar-card reveal d2">
+          <div class="p-icon">03</div>
+          <h3>Nutrition</h3>
+          <p>Personalized fuel plans — no fad diets, just food that fits your life.</p>
+        </article>
+        <article class="pillar-card reveal d3">
+          <div class="p-icon">04</div>
+          <h3>Recovery</h3>
+          <p>Sleep, stretch, reset. We coach the rest, not just the reps.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SPLIT FEATURE -->
+  <section class="split" id="split">
+    <div class="container split-grid">
+      <div class="split-img reveal" style="background-image:url('images/img2.webp')"></div>
+      <div class="split-text reveal d1">
+        <span class="eyebrow">The Stackly Method</span>
+        <h2>Coaching That Listens<br>Before It Leads</h2>
+        <p>Every plan starts with a full-body assessment — posture, mobility, strength, and lifestyle. Your coach designs a 12-week roadmap and adjusts it weekly based on how you actually feel, not a generic template.</p>
+        <ul class="check-list">
+          <li>Full movement screen on day one</li>
+          <li>Weekly check-ins and plan tweaks</li>
+          <li>Progress tracked in your member dashboard</li>
+        </ul>
+        <a href="error.html" class="btn-primary">Meet The Method</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. STATS BAND -->
+  <section class="stats-band">
+    <div class="container stats-row">
+      <div class="stat reveal"><strong data-count="45000" data-suffix=" kcal">0</strong><span>Burned This Month</span></div>
+      <div class="stat reveal d1"><strong data-count="320" data-suffix=" hrs">0</strong><span>Coached This Year</span></div>
+      <div class="stat reveal d2"><strong data-count="4.9">0</strong><span>Avg Member Rating</span></div>
+      <div class="stat reveal d3"><strong data-count="7" data-suffix=" days">0</strong><span>Free Trial Length</span></div>
+    </div>
+  </section>
+
+  <!-- 5. PROGRAM PREVIEW -->
+  <section class="preview" id="preview">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Programs</span>
+        <h2>Find Your Starting Point</h2>
+      </div>
+      <div class="preview-grid">
+        <article class="preview-card reveal">
+          <div class="pc-img" style="background-image:url('images/img3.webp')"></div>
+          <div class="pc-body"><span class="tag">Strength</span><h3>Iron Foundations</h3><p>12 weeks · 4 sessions/week</p></div>
+        </article>
+        <article class="preview-card reveal d1">
+          <div class="pc-img" style="background-image:url('images/img4.webp')"></div>
+          <div class="pc-body"><span class="tag">Mobility</span><h3>Flow &amp; Flex</h3><p>8 weeks · 3 sessions/week</p></div>
+        </article>
+        <article class="preview-card reveal d2">
+          <div class="pc-img" style="background-image:url('images/img5.webp')"></div>
+          <div class="pc-body"><span class="tag">Hybrid</span><h3>Total Reset</h3><p>16 weeks · 5 sessions/week</p></div>
+        </article>
+      </div>
+      <div class="reveal d3" style="text-align:center;margin-top:2.5rem">
+        <a href="error.html" class="btn-primary">See All Programs</a>
+      </div>
+    </div>
+  </section>
+
+<!-- Real Transformations -->
+<section class="transformations">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">REAL PEOPLE. REAL RESULTS.</span>
+      <h2>Stronger Bodies. <span class="accent">Stronger Stories.</span></h2>
+      <p>Every transformation starts with a decision. These are the stories of members who decided to become stronger.</p>
+    </div>
+
+    <div class="transform-grid">
+
+      <div class="transform-card reveal">
+        <div class="transform-img">
+          <img src="images/img6.webp" alt="Fitness transformation">
+          <span class="transform-tag">12 WEEKS</span>
+        </div>
+        <div class="transform-content">
+          <h3>Built Through Consistency</h3>
+          <p>A structured strength program focused on progressive training and better habits.</p>
+          <div class="transform-meta">
+            <span><strong>+8 kg</strong> Strength gain</span>
+            <span><strong>12</strong> Weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="transform-card reveal d1">
+        <div class="transform-img">
+          <img src="images/img7.webp" alt="Woman training">
+          <span class="transform-tag">16 WEEKS</span>
+        </div>
+        <div class="transform-content">
+          <h3>Confidence in Motion</h3>
+          <p>Improved mobility, endurance and strength through personalized coaching.</p>
+          <div class="transform-meta">
+            <span><strong>+35%</strong> Endurance</span>
+            <span><strong>16</strong> Weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="transform-card reveal d2">
+        <div class="transform-img">
+          <img src="images/img8.webp" alt="Man lifting weights">
+          <span class="transform-tag">20 WEEKS</span>
+        </div>
+        <div class="transform-content">
+          <h3>Strength Without Limits</h3>
+          <p>Focused resistance training and expert guidance helped build lasting progress.</p>
+          <div class="transform-meta">
+            <span><strong>+25%</strong> Performance</span>
+            <span><strong>20</strong> Weeks</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Stackly Experience -->
+<section class="experience">
+  <div class="experience-bg"></div>
+  <div class="experience-overlay"></div>
+
+  <div class="container experience-content reveal">
+    <span class="eyebrow">MORE THAN A GYM</span>
+    <h2>THIS IS WHERE<br><span class="accent">YOUR NEXT LEVEL</span><br>BEGINS.</h2>
+    <p>Train with purpose. Recover with intention. Grow with a community that pushes you forward every single day.</p>
+
+    <div class="experience-features">
+      <div>
+        <i class="fa-solid fa-dumbbell"></i>
+        <span>Premium Equipment</span>
+      </div>
+      <div>
+        <i class="fa-solid fa-user-check"></i>
+        <span>Expert Coaching</span>
+      </div>
+      <div>
+        <i class="fa-solid fa-heart-pulse"></i>
+        <span>Complete Wellness</span>
+      </div>
+    </div>
+
+    <a href="error.html" class="btn-primary">Experience Stackly <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+
+<!-- Expert Coaching Team -->
+<section class="coaches">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">MEET YOUR COACHES</span>
+      <h2>Guidance That <span class="accent">Gets Results.</span></h2>
+      <p>Behind every great transformation is a coach who believes in your potential.</p>
+    </div>
+
+    <div class="coach-grid">
+
+      <div class="coach-card reveal">
+        <div class="coach-img">
+          <img src="images/img9.webp" alt="Strength coach">
+          <div class="coach-social">
+            <a href="error.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="error.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="coach-info">
+          <span>STRENGTH & CONDITIONING</span>
+          <h3>Alex Morgan</h3>
+          <p>Building stronger athletes through smarter training.</p>
+        </div>
+      </div>
+
+      <div class="coach-card reveal d1">
+        <div class="coach-img">
+          <img src="images/img10.webp" alt="Fitness coach">
+          <div class="coach-social">
+            <a href="error.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="error.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="coach-info">
+          <span>MOBILITY & PERFORMANCE</span>
+          <h3>Sarah Williams</h3>
+          <p>Helping members move better and perform stronger.</p>
+        </div>
+      </div>
+
+      <div class="coach-card reveal d2">
+        <div class="coach-img">
+          <img src="images/img11.webp" alt="Personal trainer">
+          <div class="coach-social">
+            <a href="error.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="error.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="coach-info">
+          <span>FITNESS & WELLNESS</span>
+          <h3>Daniel Carter</h3>
+          <p>Turning everyday effort into sustainable progress.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Training Gallery -->
+<section class="training-gallery">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">INSIDE Stackly</span>
+      <h2>Every Rep. <span class="accent">Every Moment.</span></h2>
+      <p>A glimpse into the energy, dedication and community that make Stackly different.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-large reveal">
+        <img src="images/img12.webp" alt="Gym workout">
+        <div class="gallery-caption">
+          <span>01 / STRENGTH</span>
+          <h3>Push Your Limits</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal d1">
+        <img src="images/img13.webp" alt="Fitness training">
+        <div class="gallery-caption">
+          <span>02 / TRAINING</span>
+          <h3>Find Your Focus</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal d2">
+        <img src="images/img14.webp" alt="Fitness class">
+        <div class="gallery-caption">
+          <span>03 / COMMUNITY</span>
+          <h3>Stronger Together</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal d1">
+        <img src="images/img15.webp" alt="Personal training">
+        <div class="gallery-caption">
+          <span>04 / COACHING</span>
+          <h3>Train With Purpose</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal d2">
+        <img src="images/img16.webp" alt="Gym equipment">
+        <div class="gallery-caption">
+          <span>05 / PERFORMANCE</span>
+          <h3>Built For Progress</h3>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Member Stories -->
+<section class="member-stories">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">MEMBER STORIES</span>
+      <h2>Real Voices. <span class="accent">Real Motivation.</span></h2>
+      <p>It's not just about how you look. It's about how far you've come.</p>
+    </div>
+
+    <div class="story-grid">
+
+      <div class="story-card reveal">
+        <div class="story-top">
+          <div class="story-stars">★★★★★</div>
+          <i class="fa-solid fa-quote-right"></i>
+        </div>
+        <p class="story-quote">"The coaching here changed the way I approach fitness. Every session has a purpose, and I can genuinely feel the difference."</p>
+        <div class="story-user">
+          <img src="images/trainer1.webp" alt="Member portrait">
+          <div>
+            <h4>Michael R.</h4>
+            <span>Member for 8 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-card story-featured reveal d1">
+        <div class="story-top">
+          <div class="story-stars">★★★★★</div>
+          <i class="fa-solid fa-quote-right"></i>
+        </div>
+        <p class="story-quote">"I joined to get stronger, but I found so much more. The trainers, the atmosphere and the support make me excited to show up every day."</p>
+        <div class="story-user">
+          <img src="images/person1.webp" alt="Member portrait">
+          <div>
+            <h4>Emily T.</h4>
+            <span>Member for 1 year</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-card reveal d2">
+        <div class="story-top">
+          <div class="story-stars">★★★★★</div>
+          <i class="fa-solid fa-quote-right"></i>
+        </div>
+        <p class="story-quote">"The personalized programs and consistent guidance helped me build habits I can actually maintain. Best decision I made for myself."</p>
+        <div class="story-user">
+          <img src="images/member2.webp" alt="Member portrait">
+          <div>
+            <h4>James K.</h4>
+            <span>Member for 6 months</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- 6. CTA -->
+  <section class="cta-final">
+    <div class="container cta-inner reveal">
+      <h2>Your First Session<br>Is On Us.</h2>
+      <p>Book a free 60-minute assessment with a Stackly coach. No pressure, no commitment — just a plan.</p>
+      <a href="error.html" class="btn-primary big">Book Free Assessment</a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="pulse-dot"></span>Stackly</a>
+        <p>A personal training studio built around measurable progress, expert coaching, and a community that shows up.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <a href="about.html">About Us</a>
+        <a href="trainers.html">Our Trainers</a>
+        <a href="programs.html">Programs</a>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <a href="contact.html">Contact</a>
+        <a href="#" data-login>Member Login</a>
+        <a href="contact.html">Book a Class</a>
+      </div>
+      <div class="footer-col">
+        <h5>Visit</h5>
+        <li>221 Iron Lane, Downtown</li>
+        <li>Mon–Sat · 6am–10pm</li>
+        <li>+1 (555) 010-2024</li>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 Stackly Studio. All rights reserved.</span>
+<div class="socials">
+  <a href="#" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="#" aria-label="X">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <a href="#" aria-label="YouTube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+<script src="js/home.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

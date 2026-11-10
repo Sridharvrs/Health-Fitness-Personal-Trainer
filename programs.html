@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Programs — PulseFit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/programs.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="images/logo.webp" alt="Stackly Logo">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="trainers.html">Trainers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-cta" data-login>Sign In</button>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<aside class="offcanvas">
+  <div class="oc-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="trainers.html">Trainers</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="#" class="oc-login" data-login>Sign In</a>
+</aside>
+<div class="overlay"></div>
+
+<div class="login-modal" role="dialog" aria-modal="true">
+  <div class="login-card">
+    <button class="login-close" aria-label="Close login">&times;</button>
+    <h3>Welcome Back</h3>
+    <p class="sub">Choose how you're signing in today.</p>
+    <div class="role-selector">
+      <div class="role-option active"><span class="icon">&#127939;</span><span class="label">Member</span></div>
+      <div class="role-option"><span class="icon">&#128105;&#8205;&#127901;</span><span class="label">Trainer</span></div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Signed in (demo).');">
+      <div class="field"><label>Email</label><input type="email" placeholder="you@pulsefit.com" required></div>
+      <div class="field"><label>Password</label><input type="password" placeholder="••••••••" required></div>
+      <button class="login-submit" type="submit">Start Training</button>
+    </form>
+    <p class="login-alt">New here? <a href="#" data-login>Create an account</a></p>
+  </div>
+</div>
+
+<main>
+  <!-- 1. PROGRAMS HERO -->
+  <section class="prog-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Training Programs</span>
+      <h1 class="reveal d1">Pick Your <span class="accent">Path</span>.</h1>
+      <p class="reveal d2">Six structured programs, each designed by certified coaches and adapted weekly to your progress. Filter by goal and start when you're ready.</p>
+    </div>
+  </section>
+
+
+<!-- PREMIUM SECTION 1: PERSONAL COACHING -->
+<section class="coach-experience">
+  <div class="container coach-layout">
+
+    <div class="coach-visual reveal">
+      <div class="coach-main-img"></div>
+      <div class="coach-floating-card">
+        <span class="cf-icon">✦</span>
+        <div>
+          <strong>100% Personalized</strong>
+          <small>Training built around you</small>
+        </div>
+      </div>
+      <div class="coach-image-label">TRAIN WITH PURPOSE.</div>
+    </div>
+
+    <div class="coach-content reveal d1">
+      <span class="eyebrow">The PULSEFIT Difference</span>
+      <h2>More Than A Workout.<br><span class="accent">A Better You.</span></h2>
+
+      <p class="coach-intro">
+        Your goals deserve more than a generic workout plan.
+        Experience intelligent coaching, personalized training
+        and consistent support at every stage of your journey.
+      </p>
+
+      <div class="coach-points">
+        <div class="coach-point">
+          <span>01</span>
+          <div>
+            <h4>Personalized Training</h4>
+            <p>Every session is designed around your goals and ability.</p>
+          </div>
+        </div>
+
+        <div class="coach-point">
+          <span>02</span>
+          <div>
+            <h4>Expert Guidance</h4>
+            <p>Learn proper techniques with experienced fitness coaches.</p>
+          </div>
+        </div>
+
+        <div class="coach-point">
+          <span>03</span>
+          <div>
+            <h4>Measurable Progress</h4>
+            <p>Track improvements and adapt your training consistently.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="error.html" class="btn-primary coach-btn">
+        Meet Your Coaches <span>↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PREMIUM SECTION 2: TRAINING METHODOLOGY -->
+<section class="method-sec">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Methodology</span>
+      <h2>Progress Is <span class="accent">Never Random.</span></h2>
+      <p class="method-sub">
+        A proven approach that turns your fitness goals into
+        measurable achievements.
+      </p>
+    </div>
+
+    <div class="method-grid">
+
+      <article class="method-card reveal">
+        <span class="method-number">01</span>
+        <div class="method-icon">◎</div>
+        <h3>Assess</h3>
+        <p>
+          Understand your current fitness level, movement patterns
+          and personal goals.
+        </p>
+        <span class="method-line"></span>
+      </article>
+
+      <article class="method-card reveal d1">
+        <span class="method-number">02</span>
+        <div class="method-icon">⌘</div>
+        <h3>Strategize</h3>
+        <p>
+          Build a structured training roadmap designed specifically
+          around your needs.
+        </p>
+        <span class="method-line"></span>
+      </article>
+
+      <article class="method-card reveal d2">
+        <span class="method-number">03</span>
+        <div class="method-icon">↗</div>
+        <h3>Execute</h3>
+        <p>
+          Train consistently with expert guidance, proper technique
+          and focused effort.
+        </p>
+        <span class="method-line"></span>
+      </article>
+
+      <article class="method-card reveal d3">
+        <span class="method-number">04</span>
+        <div class="method-icon">✦</div>
+        <h3>Evolve</h3>
+        <p>
+          Review your results, adjust your plan and keep moving
+          towards your next milestone.
+        </p>
+        <span class="method-line"></span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PREMIUM SECTION 3: RESULTS -->
+<section class="results-sec">
+  <div class="container results-layout">
+
+    <div class="results-content reveal">
+      <span class="eyebrow">Built On Progress</span>
+      <h2>Small Steps.<br><span class="accent">Stronger Results.</span></h2>
+
+      <p>
+        Real fitness progress comes from consistency, smart training
+        and the right support. We help you focus on what matters
+        and celebrate every milestone along the way.
+      </p>
+
+      <div class="results-stats">
+        <div class="result-stat">
+          <strong data-count="12" data-suffix="+">0</strong>
+          <span>Training Programs</span>
+        </div>
+
+        <div class="result-stat">
+          <strong data-count="4" data-suffix="">0</strong>
+          <span>Training Stages</span>
+        </div>
+
+        <div class="result-stat">
+          <strong data-count="100" data-suffix="%">0</strong>
+          <span>Goal Focused</span>
+        </div>
+      </div>
+
+      <a href="error.html" class="btn-primary">
+        Start Your Progress <span>↗</span>
+      </a>
+    </div>
+
+    <div class="results-visual reveal d1">
+      <div class="results-photo"></div>
+
+      <div class="results-overlay-card">
+        <span class="result-star">✦</span>
+        <div>
+          <strong>Every Rep Counts.</strong>
+          <small>Every milestone matters.</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PREMIUM SECTION 4: BEYOND WORKOUTS -->
+<section class="wellness-sec">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <span class="eyebrow">Complete Fitness Support</span>
+      <h2>Everything Beyond <span class="accent">The Workout.</span></h2>
+      <p class="method-sub">
+        Fitness is a lifestyle. We support every part of your
+        journey, inside and outside the gym.
+      </p>
+    </div>
+
+    <div class="wellness-grid">
+
+      <article class="wellness-card nutrition reveal">
+        <div class="wellness-icon">◈</div>
+        <div class="wellness-info">
+          <span>01 / FUEL BETTER</span>
+          <h3>Nutrition Guidance</h3>
+          <p>
+            Build better eating habits with practical nutrition
+            guidance aligned with your training goals.
+          </p>
+        </div>
+        <span class="wellness-arrow">↗</span>
+      </article>
+
+      <article class="wellness-card recovery reveal d1">
+        <div class="wellness-icon">✧</div>
+        <div class="wellness-info">
+          <span>02 / RECOVER SMARTER</span>
+          <h3>Recovery & Mobility</h3>
+          <p>
+            Improve movement quality, flexibility and recovery
+            with dedicated mobility routines.
+          </p>
+        </div>
+        <span class="wellness-arrow">↗</span>
+      </article>
+
+      <article class="wellness-card tracking reveal d2">
+        <div class="wellness-icon">⌁</div>
+        <div class="wellness-info">
+          <span>03 / TRACK PROGRESS</span>
+          <h3>Performance Tracking</h3>
+          <p>
+            Monitor your training performance and understand
+            how far you have progressed.
+          </p>
+        </div>
+        <span class="wellness-arrow">↗</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PREMIUM SECTION 5: STUDIO EXPERIENCE -->
+<section class="studio-sec">
+  <div class="container">
+
+    <div class="studio-heading reveal">
+      <div>
+        <span class="eyebrow">The PULSEFIT Environment</span>
+        <h2>Built To <span class="accent">Push Limits.</span></h2>
+      </div>
+
+      <p>
+        A focused training environment where expert coaching,
+        purposeful movement and personal growth come together.
+      </p>
+    </div>
+
+    <div class="studio-gallery">
+
+      <div class="studio-item studio-large reveal">
+        <div class="studio-img studio-img-one"></div>
+        <div class="studio-caption">
+          <span>01 / THE SPACE</span>
+          <h3>Train With Purpose</h3>
+        </div>
+      </div>
+
+      <div class="studio-item studio-small reveal d1">
+        <div class="studio-img studio-img-two"></div>
+        <div class="studio-caption">
+          <span>02 / THE COACHING</span>
+          <h3>Guided By Experts</h3>
+        </div>
+      </div>
+
+      <div class="studio-item studio-small reveal d2">
+        <div class="studio-img studio-img-three"></div>
+        <div class="studio-caption">
+          <span>03 / THE ENERGY</span>
+          <h3>Built On Consistency</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PREMIUM SECTION 6: PROGRAM MATCHER -->
+<section class="matcher-sec">
+  <div class="container">
+
+    <div class="matcher-box reveal">
+
+      <div class="matcher-content">
+        <span class="eyebrow">Find Your Starting Point</span>
+        <h2>Which Program<br>Fits <span class="accent">Your Goal?</span></h2>
+        <p>
+          Choose your primary fitness goal and discover a
+          program that matches your direction.
+        </p>
+
+        <div class="matcher-options">
+          <button class="match-option active" data-goal="strength">
+            <span>01</span> Build Strength
+            <span class="match-check">✓</span>
+          </button>
+
+          <button class="match-option" data-goal="cardio">
+            <span>02</span> Improve Endurance
+            <span class="match-check">✓</span>
+          </button>
+
+          <button class="match-option" data-goal="mobility">
+            <span>03</span> Improve Mobility
+            <span class="match-check">✓</span>
+          </button>
+
+          <button class="match-option" data-goal="lifestyle">
+            <span>04</span> Overall Fitness
+            <span class="match-check">✓</span>
+          </button>
+        </div>
+
+        <button class="btn-primary match-submit" id="findProgram">
+          Find My Program <span>↗</span>
+        </button>
+      </div>
+
+      <div class="matcher-visual">
+        <div class="matcher-image"></div>
+
+        <div class="match-result" id="matchResult" aria-live="polite">
+          <span class="match-result-label">YOUR RECOMMENDATION</span>
+          <h3 id="matchTitle">Iron Foundations</h3>
+          <p id="matchDescription">
+            Build a strong foundation through progressive resistance training.
+          </p>
+          <span class="match-result-tag" id="matchTag">STRENGTH</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- 2. FILTER + CARDS -->
+  <section class="prog-cards-sec">
+    <div class="container">
+      <div class="filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="strength">Strength</button>
+        <button class="filter-btn" data-filter="cardio">Cardio</button>
+        <button class="filter-btn" data-filter="mobility">Mobility</button>
+        <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+      </div>
+      <div class="prog-grid">
+        <article class="prog-card reveal" data-cat="strength">
+          <div class="pc-img" style="background-image:url('images/img3.webp')"></div>
+          <div class="pc-body">
+            <span class="tag">Strength</span>
+            <h3>Iron Foundations</h3>
+            <p>Build a base of strength with progressive barbell training. 12 weeks, 4 sessions/week.</p>
+            <div class="pc-meta"><span>&#128337; 12 weeks</span><span>&#128170; Advanced</span></div>
+          </div>
+        </article>
+        <article class="prog-card reveal d1" data-cat="cardio">
+          <div class="pc-img" style="background-image:url('images/img21.webp')"></div>
+          <div class="pc-body">
+            <span class="tag">Cardio</span>
+            <h3>Engine Builder</h3>
+            <p>Zone 2 and interval training to build a heart that never quits. 10 weeks, 5 sessions/week.</p>
+            <div class="pc-meta"><span>&#128337; 10 weeks</span><span>&#128293; All Levels</span></div>
+          </div>
+        </article>
+        <article class="prog-card reveal d2" data-cat="mobility">
+          <div class="pc-img" style="background-image:url('images/img4.webp')"></div>
+          <div class="pc-body">
+            <span class="tag">Mobility</span>
+            <h3>Flow &amp; Flex</h3>
+            <p>Daily movement flows and deep stretching for pain-free joints. 8 weeks, 3 sessions/week.</p>
+            <div class="pc-meta"><span>&#128337; 8 weeks</span><span>&#129495; Beginner</span></div>
+          </div>
+        </article>
+        <article class="prog-card reveal" data-cat="strength">
+          <div class="pc-img" style="background-image:url('images/img20.webp')"></div>
+          <div class="pc-body">
+            <span class="tag">Strength</span>
+            <h3>Pull &amp; Push Power</h3>
+            <p>Upper-body focused hypertrophy with resistance bands and free weights. 14 weeks, 4 sessions/week.</p>
+            <div class="pc-meta"><span>&#128337; 14 weeks</span><span>&#128170; Intermediate</span></div>
+          </div>
+        </article>
+        <article class="prog-card reveal d1" data-cat="lifestyle">
+          <div class="pc-img" style="background-image:url('images/img23.webp')"></div>
+          <div class="pc-body">
+            <span class="tag">Lifestyle</span>
+            <h3>Total Reset</h3>
+            <p>Full-body hybrid: strength, cardio, and recovery in one balanced plan. 16 weeks, 5 sessions/week.</p>
+            <div class="pc-meta"><span>&#128337; 16 weeks</span><span>&#9855;; All Levels</span></div>
+          </div>
+        </article>
+        <article class="prog-card reveal d2" data-cat="lifestyle">
+          <div class="pc-img" style="background-image:url('images/img5.webp')"></div>
+          <div class="pc-body">
+            <span class="tag">Lifestyle</span>
+            <h3>Lean &amp; Toned</h3>
+            <p>Bodyweight circuits for fat loss and lean muscle. No equipment needed. 6 weeks, 4 sessions/week.</p>
+            <div class="pc-meta"><span>&#128337; 6 weeks</span><span>&#129495; Beginner</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PRICING -->
+  <section class="pricing">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Membership</span><h2>Simple, Honest Pricing</h2></div>
+      <div class="price-grid">
+        <div class="price-card reveal">
+          <h3>Starter</h3>
+          <div class="price"><span class="cur">$</span>29<span class="per">/mo</span></div>
+          <ul><li>2 group sessions/week</li><li>Member dashboard</li><li>Basic nutrition guide</li></ul>
+          <a href="error.html" class="btn-outline">Choose Starter</a>
+        </div>
+        <div class="price-card featured reveal d1">
+          <span class="badge">Most Popular</span>
+          <h3>Pro</h3>
+          <div class="price"><span class="cur">$</span>79<span class="per">/mo</span></div>
+          <ul><li>Unlimited group sessions</li><li>1 personal session/mo</li><li>Custom nutrition plan</li><li>Weekly check-ins</li></ul>
+          <a href="error.html" class="btn-primary">Choose Pro</a>
+        </div>
+        <div class="price-card reveal d2">
+          <h3>Elite</h3>
+          <div class="price"><span class="cur">$</span>149<span class="per">/mo</span></div>
+          <ul><li>Unlimited everything</li><li>4 personal sessions/mo</li><li>Recovery &amp; mobility coaching</li><li>Priority booking</li></ul>
+          <a href="error.html" class="btn-outline">Choose Elite</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. HOW IT WORKS -->
+  <section class="how-sec">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Getting Started</span><h2>Three Steps To Your First Workout</h2></div>
+      <div class="how-grid">
+        <div class="how-card reveal"><span class="step">1</span><h3>Assess</h3><p>60-minute movement &amp; goal screen with a coach.</p></div>
+        <div class="how-card reveal d1"><span class="step">2</span><h3>Plan</h3><p>Receive your custom 12-week roadmap within 48 hours.</p></div>
+        <div class="how-card reveal d2"><span class="step">3</span><h3>Train</h3><p>Show up, track progress, and adjust weekly with your coach.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ -->
+  <section class="faq-sec">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Questions</span><h2>You Asked, We Answered</h2></div>
+      <div class="faq-list">
+        <details class="faq-item reveal"><summary>Do I need any equipment to start?</summary><p>No. Several programs are fully bodyweight. Your coach will recommend equipment only when your plan calls for it.</p></details>
+        <details class="faq-item reveal d1"><summary>Can I switch programs mid-cycle?</summary><p>Yes. Your membership includes unlimited program changes. Your coach will help you transition without losing progress.</p></details>
+        <details class="faq-item reveal d2"><summary>What if I have an injury?</summary><p>Every program begins with a movement screen. We adapt or refer you out — your safety comes first.</p></details>
+        <details class="faq-item reveal d3"><summary>Is there a free trial?</summary><p>Yes — your first assessment session is completely free, no membership required.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA -->
+  <section class="prog-cta">
+    <div class="container cta-inner reveal">
+      <h2>Not Sure Which Program Fits?</h2>
+      <p>Book a free assessment and a coach will match you to the right plan.</p>
+      <a href="error.html" class="btn-primary big">Book Free Assessment</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="pulse-dot"></span>Stackly</a>
+        <p>A personal training studio built around measurable progress, expert coaching, and a community that shows up.</p>
+      </div>
+      <div class="footer-col"><h5>Studio</h5><a href="about.html">About Us</a><a href="trainers.html">Our Trainers</a><a href="programs.html">Programs</a></div>
+      <div class="footer-col"><h5>Support</h5><a href="contact.html">Contact</a><a href="#" data-login>Member Login</a><a href="contact.html">Book a Class</a></div>
+      <div class="footer-col"><h5>Visit</h5><li>221 Iron Lane, Downtown</li><li>Mon–Sat · 6am–10pm</li><li>+1 (555) 010-2024</li></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2024 PulseFit Studio. All rights reserved.</span>
+      <div class="socials">
+  <a href="#" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="#" aria-label="X">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <a href="#" aria-label="YouTube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+<script src="js/programs.js"></script>
+</body>
+</html>

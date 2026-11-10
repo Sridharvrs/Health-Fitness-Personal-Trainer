@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/about.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="index.html" class="logo">
+          <img src="images/logo.webp" alt="Stackly Logo">
+        </a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="programs.html">Programs</a>
+          <a href="trainers.html">Trainers</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <button class="nav-cta" data-login>Sign In</button>
+        <button class="nav-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <aside class="offcanvas">
+      <div class="oc-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="trainers.html">Trainers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="#" class="oc-login" data-login>Sign In</a>
+    </aside>
+    <div class="overlay"></div>
+
+    <div class="login-modal" role="dialog" aria-modal="true">
+      <div class="login-card">
+        <button class="login-close" aria-label="Close login">&times;</button>
+        <h3>Welcome Back</h3>
+        <p class="sub">Choose how you're signing in today.</p>
+        <div class="role-selector">
+          <div class="role-option active">
+            <span class="icon">&#127939;</span><span class="label">Member</span>
+          </div>
+          <div class="role-option">
+            <span class="icon">&#128105;&#8205;&#127901;</span
+            ><span class="label">Trainer</span>
+          </div>
+        </div>
+        <form
+          onsubmit="
+            event.preventDefault();
+            alert('Signed in (demo).');
+          "
+        >
+          <div class="field">
+            <label>Email</label
+            ><input type="email" placeholder="you@Stackly.com" required />
+          </div>
+          <div class="field">
+            <label>Password</label
+            ><input type="password" placeholder="••••••••" required />
+          </div>
+          <button class="login-submit" type="submit">Start Training</button>
+        </form>
+        <p class="login-alt">
+          New here? <a href="#" data-login>Create an account</a>
+        </p>
+      </div>
+    </div>
+
+    <main>
+      <!-- 1. STORY HERO -->
+      <section class="story-hero">
+        <div class="container story-grid">
+          <div class="story-text reveal">
+            <span class="eyebrow">Our Story</span>
+            <h1>
+              Built By Athletes,<br /><span class="accent"
+                >For Real People.</span
+              >
+            </h1>
+            <p>
+              Stackly started in 2016 as a single garage with one barbell. Today
+              we coach 1,200+ members across strength, mobility, and lifestyle
+              fitness — all with the same belief: training should fit your life,
+              not consume it.
+            </p>
+            <div class="founder">
+              <div
+                class="f-avatar"
+                style="background-image: url(&quot;images/img17.webp&quot;)"
+              ></div>
+              <div>
+                <strong>Marcus Reyes</strong
+                ><span>Founder &amp; Head Coach</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="story-img reveal d1"
+            style="background-image: url(&quot;images/img18.webp&quot;)"
+          >
+            <div class="story-badge">
+              <strong data-count="8">0</strong><span>Years Strong</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stackly Difference -->
+      <section class="about-diff">
+        <div class="about-diff-bg"></div>
+
+        <div class="container about-diff-inner">
+          <div class="about-diff-heading reveal">
+            <span class="eyebrow">THE Stackly DIFFERENCE</span>
+            <h2>Not Just A Gym.<br /><span>Your Second Home.</span></h2>
+            <p>
+              We combine expert guidance, an energizing environment, and a
+              community that keeps you moving forward.
+            </p>
+          </div>
+
+          <div class="about-diff-points">
+            <div class="about-diff-item reveal d1">
+              <span class="about-diff-number">01</span>
+              <div>
+                <h3>Expert Coaching</h3>
+                <p>
+                  Get guidance from people who understand your goals and help
+                  you train smarter.
+                </p>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="about-diff-item reveal d2">
+              <span class="about-diff-number">02</span>
+              <div>
+                <h3>Built Around You</h3>
+                <p>
+                  Every fitness journey is different. Your training should be
+                  too.
+                </p>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="about-diff-item reveal d3">
+              <span class="about-diff-number">03</span>
+              <div>
+                <h3>Real Community</h3>
+                <p>
+                  Train alongside people who motivate you to show up and push
+                  further.
+                </p>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. TIMELINE -->
+      <section class="timeline-sec">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Milestones</span>
+            <h2>The Road So Far</h2>
+          </div>
+          <div class="timeline">
+            <div class="tl-item reveal">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2016</div>
+              <h3>The Garage</h3>
+              <p>One barbell, one client, one promise.</p>
+            </div>
+            <div class="tl-item reveal d1">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2018</div>
+              <h3>First Studio</h3>
+              <p>Opened downtown with 3 coaches on staff.</p>
+            </div>
+            <div class="tl-item reveal d2">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2021</div>
+              <h3>Hybrid App</h3>
+              <p>Launched member dashboard &amp; weekly check-ins.</p>
+            </div>
+            <div class="tl-item reveal d3">
+              <div class="tl-dot"></div>
+              <div class="tl-year">2024</div>
+              <h3>1,200+ Members</h3>
+              <p>Three studios, fifteen expert coaches.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Training Philosophy -->
+      <section class="about-method">
+        <div class="container about-method-grid">
+          <div class="about-method-visual reveal">
+            <div class="about-method-image"></div>
+
+            <div class="about-method-stamp">
+              <span>TRAIN</span>
+              <strong>SMARTER</strong>
+              <span>LIVE STRONGER</span>
+            </div>
+
+            <div class="about-method-caption">
+              <span class="fa-solid fa-dumbbell"></span>
+              <div>
+                <strong>Progress Over Perfection</strong>
+                <small>One session at a time.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-method-content reveal d1">
+            <span class="eyebrow">OUR PHILOSOPHY</span>
+            <h2>Strong Bodies.<br /><span>Stronger Mindsets.</span></h2>
+
+            <p class="about-method-intro">
+              Fitness isn't about chasing perfection. It's about building
+              habits, discovering your strength, and becoming better every day.
+            </p>
+
+            <div class="about-method-list">
+              <div>
+                <span>01</span>
+                <div>
+                  <h3>Train With Purpose</h3>
+                  <p>
+                    Every workout has a direction. Focus on proper form,
+                    consistency, and steady progress.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <span>02</span>
+                <div>
+                  <h3>Respect Recovery</h3>
+                  <p>
+                    Rest is part of the process. Give your body the time it
+                    needs to grow stronger.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <span>03</span>
+                <div>
+                  <h3>Build Lasting Habits</h3>
+                  <p>
+                    Small daily improvements create the biggest long-term
+                    transformations.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <a href="error.html" class="about-method-link">
+              EXPLORE OUR PROGRAMS
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. VALUES -->
+      <section class="values">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">What We Stand For</span>
+            <h2>Values That Move Us</h2>
+          </div>
+          <div class="value-grid">
+            <article class="value-card reveal">
+              <span class="v-num">A</span>
+              <h3>Authenticity</h3>
+              <p>
+                No filters, no performance. We coach the body in front of us,
+                not the one on a billboard.
+              </p>
+            </article>
+            <article class="value-card reveal d1">
+              <span class="v-num">B</span>
+              <h3>Balance</h3>
+              <p>
+                Strength and recovery, push and rest. Progress you can sustain
+                for decades.
+              </p>
+            </article>
+            <article class="value-card reveal d2">
+              <span class="v-num">C</span>
+              <h3>Community</h3>
+              <p>
+                You train alongside people who notice when you miss a day — and
+                celebrate when you don't.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Inside Our Facility -->
+      <section class="about-facility">
+        <div class="container">
+          <div class="about-facility-heading reveal">
+            <div>
+              <span class="eyebrow">BUILT FOR YOUR BEST</span>
+              <h2>A Space That <span>Moves You.</span></h2>
+            </div>
+            <p>
+              From focused strength sessions to high-energy workouts, every
+              corner is designed to keep you moving.
+            </p>
+          </div>
+
+          <div class="about-facility-grid">
+            <div class="about-facility-main reveal">
+              <div class="about-facility-photo facility-photo-one"></div>
+              <div class="about-facility-overlay">
+                <span>01 / STRENGTH</span>
+                <h3>Build Your Power.</h3>
+              </div>
+            </div>
+
+            <div class="about-facility-side">
+              <div class="about-facility-small reveal d1">
+                <div class="about-facility-photo facility-photo-two"></div>
+                <div class="about-facility-overlay">
+                  <span>02 / PERFORMANCE</span>
+                  <h3>Push Your Limits.</h3>
+                </div>
+              </div>
+
+              <div class="about-facility-small reveal d2">
+                <div class="about-facility-photo facility-photo-three"></div>
+                <div class="about-facility-overlay">
+                  <span>03 / COMMUNITY</span>
+                  <h3>Grow Together.</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. QUOTE -->
+      <section class="quote-sec">
+        <div class="container">
+          <blockquote class="reveal">
+            <p>
+              &ldquo;We don't sell transformations. We build the habits that
+              make transformation inevitable.&rdquo;
+            </p>
+            <cite>— Marcus Reyes, Founder</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- More Than A Workout -->
+      <section class="about-community">
+        <div class="about-community-image"></div>
+
+        <div class="container about-community-inner">
+          <div class="about-community-content reveal">
+            <span class="eyebrow">MORE THAN A WORKOUT</span>
+
+            <h2>Find Your People.<br /><span>Find Your Strength.</span></h2>
+
+            <p>
+              The best part of fitness isn't just what happens in the gym. It's
+              the friendships, encouragement, and shared victories that make
+              every step worth it.
+            </p>
+
+            <div class="about-community-stats">
+              <div>
+                <strong>ONE</strong>
+                <span>COMMUNITY</span>
+              </div>
+              <div>
+                <strong>EVERY</strong>
+                <span>FITNESS LEVEL</span>
+              </div>
+              <div>
+                <strong>DAILY</strong>
+                <span>PROGRESS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. STUDIO GALLERY -->
+      <section class="gallery-sec">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Inside The Studio</span>
+            <h2>Where The Work Happens</h2>
+          </div>
+          <div class="gallery-grid">
+            <div
+              class="g-item reveal"
+              style="background-image: url(&quot;images/img19.webp&quot;)"
+            ></div>
+            <div
+              class="g-item reveal d1"
+              style="background-image: url(&quot;images/img20.webp&quot;)"
+            ></div>
+            <div
+              class="g-item reveal d2"
+              style="background-image: url(&quot;images/img21.webp&quot;)"
+            ></div>
+            <div
+              class="g-item reveal d3"
+              style="background-image: url(&quot;images/img22.webp&quot;)"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Promise -->
+      <section class="about-promise">
+        <div class="container about-promise-inner reveal">
+          <span class="eyebrow">OUR PROMISE</span>
+
+          <h2>Your Journey.<br /><span>Our Commitment.</span></h2>
+
+          <p>
+            Wherever you're starting from, you'll find the support, space, and
+            motivation to keep moving forward.
+          </p>
+
+          <a href="error.html" class="about-promise-link">
+            LET'S START SOMETHING
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- 6. JOIN CTA -->
+      <section class="join-cta">
+        <div class="container join-inner reveal">
+          <h2>Come See For Yourself</h2>
+          <p>
+            Walk through the doors. Meet a coach. Your first session is free.
+          </p>
+          <a href="error.html" class="btn-primary big">Book A Visit</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo"
+              ><span class="pulse-dot"></span>Stackly</a
+            >
+            <p>
+              A personal training studio built around measurable progress,
+              expert coaching, and a community that shows up.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h5>Studio</h5>
+            <a href="about.html">About Us</a
+            ><a href="trainers.html">Our Trainers</a
+            ><a href="programs.html">Programs</a>
+          </div>
+          <div class="footer-col">
+            <h5>Support</h5>
+            <a href="contact.html">Contact</a
+            ><a href="#" data-login>Member Login</a
+            ><a href="contact.html">Book a Class</a>
+          </div>
+          <div class="footer-col">
+            <h5>Visit</h5>
+            <li>221 Iron Lane, Downtown</li>
+            <li>Mon–Sat · 6am–10pm</li>
+            <li>+1 (555) 010-2024</li>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2024 Stackly Studio. All rights reserved.</span>
+<div class="socials">
+  <a href="#" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="#" aria-label="X">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <a href="#" aria-label="YouTube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/about.js"></script>
+  </body>
+</html>
