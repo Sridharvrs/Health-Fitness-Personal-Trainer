@@ -1,306 +1,269 @@
+
 /* =========================================
-   PULSEFIT — LOGIN & SIGNUP
+   PULSEFIT - AUTHENTICATION
+   Demo Login & Signup
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-  "use strict";
 
+  // ===== ELEMENTS =====
   const loginView = document.getElementById("loginView");
   const signupView = document.getElementById("signupView");
 
   const loginForm = document.getElementById("loginForm");
   const signupForm = document.getElementById("signupForm");
 
-  const roleCards = document.querySelectorAll(
-    "#loginView .role-option"
-  );
-
   const loginEmail = document.getElementById("loginEmail");
   const loginPassword = document.getElementById("loginPassword");
+
+  const signupName = document.getElementById("signupName");
+  const signupEmail = document.getElementById("signupEmail");
+  const signupPassword = document.getElementById("signupPassword");
+  const confirmPassword = document.getElementById("confirmPassword");
+  const signupTerms = document.getElementById("signupTerms");
 
   const loginMessage = document.getElementById("loginMessage");
   const signupMessage = document.getElementById("signupMessage");
 
-  const loginButton = document.getElementById("loginSubmit");
-  const signupButton = document.getElementById("signupSubmit");
+  const loginSubmit = document.getElementById("loginSubmit");
+  const signupSubmit = document.getElementById("signupSubmit");
 
   const loginButtonText = document.getElementById("loginButtonText");
+
   const loginEmailLabel = document.getElementById("loginEmailLabel");
 
-  if (!loginForm || !signupForm) return;
+  const showSignup = document.getElementById("showSignup");
+  const showLogin = document.getElementById("showLogin");
 
-  let selectedRole = "member";
-
-  /* ---------- Dashboard routes ---------- */
-
+  // ===== DASHBOARD ROUTES =====
   const dashboardRoutes = {
     member: "./member-dashboard.html",
     trainer: "./trainer-dashboard.html"
   };
 
-  /* ---------- Switch views ---------- */
+  const STORAGE_KEY = "stacklyCurrentUser";
 
-  function showLogin() {
-    loginView.hidden = false;
-    signupView.hidden = true;
+  let selectedRole = "member";
 
-    clearMessage(loginMessage);
-    clearMessage(signupMessage);
-  }
-
-  function showSignup() {
-    loginView.hidden = true;
-    signupView.hidden = false;
-
-    clearMessage(loginMessage);
-    clearMessage(signupMessage);
-  }
-
-  document.getElementById("showSignup")?.addEventListener("click", (e) => {
-    e.preventDefault();
-    showSignup();
-  });
-
-  document.getElementById("showLogin")?.addEventListener("click", (e) => {
-    e.preventDefault();
-    showLogin();
-  });
-
-  /* ---------- Role selection ---------- */
-
-  function selectRole(role) {
-    if (!dashboardRoutes[role]) return;
-
-    selectedRole = role;
-
-    roleCards.forEach((card) => {
-      const active = card.dataset.role === role;
-
-      card.classList.toggle("active", active);
-      card.setAttribute("aria-pressed", String(active));
-    });
-
-    loginButtonText.textContent =
-      role === "trainer" ? "Trainer Login" : "Member Login";
-
-    loginEmailLabel.textContent =
-      role === "trainer" ? "Trainer Email" : "Member Email";
-
-    loginEmail.placeholder =
-      role === "trainer"
-        ? "Enter your trainer email"
-        : "Enter your member email";
-
-    clearMessage(loginMessage);
-  }
-
-  roleCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      selectRole(card.dataset.role);
-    });
-  });
-
-  /* ---------- Password visibility ---------- */
-
-  document.querySelectorAll("[data-toggle-password]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const input = document.getElementById(
-        button.dataset.togglePassword
-      );
-
-      if (!input) return;
-
-      const show = input.type === "password";
-      input.type = show ? "text" : "password";
-
-      const icon = button.querySelector("i");
-
-      if (icon) {
-        icon.classList.toggle("fa-eye", !show);
-        icon.classList.toggle("fa-eye-slash", show);
-        icon.classList.toggle("fa-regular", !show);
-        icon.classList.toggle("fa-solid", show);
-      }
-
-      button.setAttribute(
-        "aria-label",
-        show ? "Hide password" : "Show password"
-      );
-    });
-  });
-
-  /* ---------- Validation helpers ---------- */
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_\-+=])[A-Za-z\d@$!%*?&^#()_\-+=]{8,}$/;
-
-  function showMessage(element, message, success = false) {
+  // ===== MESSAGE FUNCTIONS =====
+  function showMessage(element, message, type = "error") {
     if (!element) return;
 
     element.textContent = message;
-    element.classList.add("show");
-    element.classList.toggle("success", success);
-    element.classList.toggle("error", !success);
+    element.className = `auth-message ${type}`;
+    element.style.display = "block";
   }
 
   function clearMessage(element) {
     if (!element) return;
 
     element.textContent = "";
-    element.classList.remove("show", "success", "error");
+    element.style.display = "none";
   }
 
-  function clearOnTyping(form, message) {
-    form.querySelectorAll("input").forEach((input) => {
-      input.addEventListener("input", () => {
-        clearMessage(message);
-      });
+  // ===== VALIDATION =====
+  function validEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function validPassword(password) {
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_\-+=])[A-Za-z\d@$!%*?&^#()_\-+=]{8,}$/.test(password);
+  }
+
+  // ===== ROLE SELECTION =====
+  const roleOptions = document.querySelectorAll(
+    "#loginView .role-option"
+  );
+
+  function selectRole(role) {
+    if (!dashboardRoutes[role]) return;
+
+    selectedRole = role;
+
+    roleOptions.forEach(option => {
+      const active = option.dataset.role === role;
+
+      option.classList.toggle("active", active);
+      option.setAttribute("aria-pressed", String(active));
+    });
+
+    if (loginEmailLabel) {
+      loginEmailLabel.textContent =
+        role === "trainer" ? "Trainer Email" : "Member Email";
+    }
+
+    if (loginButtonText) {
+      loginButtonText.textContent =
+        role === "trainer" ? "Trainer Login" : "Member Login";
+    }
+
+    clearMessage(loginMessage);
+  }
+
+  roleOptions.forEach(option => {
+    option.addEventListener("click", () => {
+      selectRole(option.dataset.role);
+    });
+  });
+
+  // ===== SWITCH TO SIGNUP =====
+  if (showSignup) {
+    showSignup.addEventListener("click", event => {
+      event.preventDefault();
+
+      loginView.hidden = true;
+      signupView.hidden = false;
+
+      clearMessage(loginMessage);
+      clearMessage(signupMessage);
     });
   }
 
-  clearOnTyping(loginForm, loginMessage);
-  clearOnTyping(signupForm, signupMessage);
+  // ===== SWITCH TO LOGIN =====
+  if (showLogin) {
+    showLogin.addEventListener("click", event => {
+      event.preventDefault();
 
-  /* ---------- Login submission ---------- */
+      signupView.hidden = true;
+      loginView.hidden = false;
 
-  loginForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    clearMessage(loginMessage);
+      clearMessage(loginMessage);
+      clearMessage(signupMessage);
+    });
+  }
 
-    const email = loginEmail.value.trim().toLowerCase();
-    const password = loginPassword.value;
+  // ===== PASSWORD VISIBILITY =====
+  document.querySelectorAll("[data-toggle-password]").forEach(button => {
+    button.addEventListener("click", () => {
+      const inputId = button.dataset.togglePassword;
+      const input = document.getElementById(inputId);
+      const icon = button.querySelector("i");
 
-    if (!email) {
-      showMessage(loginMessage, "Please enter your email address.");
-      loginEmail.focus();
-      return;
-    }
+      if (!input) return;
 
-    if (!emailRegex.test(email)) {
-      showMessage(loginMessage, "Please enter a valid email address.");
-      loginEmail.focus();
-      return;
-    }
+      const isPassword = input.type === "password";
 
-    if (!password.trim()) {
-      showMessage(loginMessage, "Please enter your password.");
-      loginPassword.focus();
-      return;
-    }
+      input.type = isPassword ? "text" : "password";
 
-    const currentUser = {
-      name: email.split("@")[0],
-      email: email,
-      role: selectedRole
-    };
-
-    const remember = document.getElementById("remember").checked;
-
-    try {
-      localStorage.removeItem("stacklyCurrentUser");
-      sessionStorage.removeItem("stacklyCurrentUser");
-
-      const storage = remember ? localStorage : sessionStorage;
-
-      storage.setItem(
-        "stacklyCurrentUser",
-        JSON.stringify(currentUser)
+      button.setAttribute(
+        "aria-label",
+        isPassword ? "Hide password" : "Show password"
       );
 
-    } catch (error) {
-      console.error("Session storage error:", error);
+      if (icon) {
+        icon.classList.toggle("fa-eye", !isPassword);
+        icon.classList.toggle("fa-eye-slash", isPassword);
+      }
+    });
+  });
 
-      showMessage(
-        loginMessage,
-        "Unable to save your session. Please check browser storage."
-      );
+  // ===== LOGIN FORM =====
+  if (loginForm) {
+    loginForm.addEventListener("submit", event => {
+      event.preventDefault();
 
-      return;
-    }
+      clearMessage(loginMessage);
 
-    loginButton.disabled = true;
-    loginButton.classList.add("loading");
-    loginButtonText.textContent = "Signing in...";
+      const email = loginEmail.value.trim();
+      const password = loginPassword.value;
 
-    setTimeout(() => {
+      if (!validEmail(email)) {
+        showMessage(loginMessage, "Please enter a valid email address.");
+        return;
+      }
+
+      if (!validPassword(password)) {
+        showMessage(
+          loginMessage,
+          "Password must contain at least 8 characters, uppercase, lowercase, number and special character."
+        );
+        return;
+      }
+
+      const currentUser = {
+        name: email.split("@")[0],
+        email: email,
+        role: selectedRole,
+        loginTime: new Date().toISOString()
+      };
+
+      const remember = document.getElementById("remember")?.checked;
+
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        sessionStorage.removeItem(STORAGE_KEY);
+
+        const storage = remember ? localStorage : sessionStorage;
+
+        storage.setItem(STORAGE_KEY, JSON.stringify(currentUser));
+      } catch (error) {
+        showMessage(loginMessage, "Unable to save login details.");
+        return;
+      }
+
+      // Disable button while redirecting
+      if (loginSubmit) loginSubmit.disabled = true;
+
+      if (loginButtonText) {
+        loginButtonText.textContent = "Signing In...";
+      }
+
+      // Redirect based on selected role
       window.location.href = dashboardRoutes[selectedRole];
-    }, 500);
-  });
+    });
+  }
 
-  /* ---------- Signup submission ---------- */
+  // ===== SIGNUP FORM =====
+  if (signupForm) {
+    signupForm.addEventListener("submit", event => {
+      event.preventDefault();
 
-  signupForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    clearMessage(signupMessage);
+      clearMessage(signupMessage);
 
-    const name = document.getElementById("signupName").value.trim();
-    const email = document.getElementById("signupEmail").value.trim().toLowerCase();
+      const name = signupName.value.trim();
+      const email = signupEmail.value.trim();
+      const password = signupPassword.value;
+      const confirm = confirmPassword.value;
 
-    const password = document.getElementById("signupPassword").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
+      if (!name || !email || !password || !confirm) {
+        showMessage(signupMessage, "Please fill in all fields.");
+        return;
+      }
 
-    const terms = document.getElementById("signupTerms");
+      if (!validEmail(email)) {
+        showMessage(signupMessage, "Please enter a valid email address.");
+        return;
+      }
 
-    if (name.length < 3) {
-      showMessage(signupMessage, "Please enter your full name.");
-      document.getElementById("signupName").focus();
-      return;
-    }
+      if (!validPassword(password)) {
+        showMessage(
+          signupMessage,
+          "Password must contain at least 8 characters, uppercase, lowercase, number and special character."
+        );
+        return;
+      }
 
-    if (!emailRegex.test(email)) {
-      showMessage(signupMessage, "Please enter a valid email address.");
-      document.getElementById("signupEmail").focus();
-      return;
-    }
+      if (password !== confirm) {
+        showMessage(signupMessage, "Passwords do not match.");
+        return;
+      }
 
-    if (!passwordRegex.test(password)) {
-      showMessage(
-        signupMessage,
-        "Password must have at least 8 characters, uppercase, lowercase, number and special character."
-      );
-
-      document.getElementById("signupPassword").focus();
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      showMessage(signupMessage, "Passwords do not match.");
-      document.getElementById("confirmPassword").focus();
-      return;
-    }
-
-    if (!terms.checked) {
-      showMessage(
-        signupMessage,
-        "Please accept the Terms and Privacy Policy."
-      );
-
-      terms.focus();
-      return;
-    }
-
-    signupButton.disabled = true;
-    signupButton.classList.add("loading");
-    signupButton.querySelector("span").textContent = "Creating Account...";
-
-    setTimeout(() => {
-      signupButton.disabled = false;
-      signupButton.classList.remove("loading");
-      signupButton.querySelector("span").textContent = "Create Account";
+      if (!signupTerms.checked) {
+        showMessage(signupMessage, "Please accept the Terms and Privacy Policy.");
+        return;
+      }
 
       showMessage(
         signupMessage,
-        "Your details are valid! Connect a backend to complete registration.",
-        true
+        "Account details validated successfully. Please sign in.",
+        "success"
       );
-    }, 1000);
-  });
 
-  /* ---------- Initial state ---------- */
+      signupForm.reset();
+    });
+  }
 
+  // ===== INITIAL STATE =====
   selectRole("member");
-  showLogin();
 
 });

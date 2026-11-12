@@ -639,3 +639,122 @@ h1, h2, h3, h4 {
     padding: 0.8rem 0.4rem;
   }
 }
+
+/* =====================================
+   OFFCANVAS — CONTACT INFORMATION
+===================================== */
+
+.offcanvas {
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-600) transparent;
+}
+
+.offcanvas .oc-links {
+  margin-bottom: 1.8rem;
+}
+
+/* LOGIN BUTTON */
+
+.offcanvas .oc-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+/* CONTACT SECTION */
+
+.oc-contact {
+  margin-top: 1.8rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.oc-contact h4 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primary-400);
+  margin-bottom: 1.2rem;
+}
+
+.oc-contact a,
+.oc-contact .oc-address,
+.oc-contact .oc-hours {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+  color: var(--ink-300);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.oc-contact .oc-hours {
+  margin-bottom: 0;
+}
+
+.oc-contact i {
+  width: 17px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--accent-400);
+  font-size: 0.95rem;
+}
+
+.oc-contact a {
+  transition: color 0.3s ease;
+}
+
+.oc-contact a:hover {
+  color: var(--primary-400);
+}
+
+/* SOCIAL ICONS */
+
+.oc-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding-top: 1.5rem;
+}
+
+.oc-socials a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(32,195,154,0.2);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.035);
+  color: var(--ink-200);
+  font-size: 1rem;
+  transition: all 0.3s var(--ease-spring);
+}
+
+.oc-socials a:hover {
+  background: var(--primary-500);
+  color: var(--primary-900);
+  border-color: var(--primary-500);
+  transform: translateY(-3px);
+}
+
+/* MOBILE WIDTH */
+
+@media (max-width: 520px) {
+  .offcanvas {
+    width: min(82%, 360px);
+    padding: 4.5rem 1.4rem 1.5rem;
+  }
+
+  .oc-contact {
+    margin-top: 1.5rem;
+  }
+}
